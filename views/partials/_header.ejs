@@ -1,5 +1,5 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
     <a class="navbar-brand" href="/">DESEO</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -13,8 +13,11 @@
         <li class="nav-item">
           <a class="nav-link" href="/my-wishlist">Wishlist</a>
         </li>
-        <% if (locals.isLoggedIn) { %>
         <li class="nav-item">
+          <a class="nav-link" href="/my-wishlist">Trending</a>
+        </li>
+        <% if (locals.isLoggedIn) { %>
+        <li class="nav-item ">
           <a class="nav-link" href="/logout">Log Out</a>
         </li>
         <% } else { %>
