@@ -25,21 +25,21 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <%# add line for when user logged in they see these  %>
+      <% if (locals.isLoggedIn) { %>
         <li class="nav-item ">
           <a class="nav-link" href="/logout">Log Out</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/my-wishlist">My Wishlist</a>
         </li>
-        <%# when they are not logged in they see the below %>
+      <% } else { %>
         <li class="nav-item">
           <a class="nav-link" href="/register">Register</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/login">Login</a>
         </li>
-        <%# close it off here %>
+      <% } %>
       </ul>
     </div>
   </nav>
