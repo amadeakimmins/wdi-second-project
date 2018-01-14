@@ -1,35 +1,45 @@
 <header>
+  <nav class="navbar navbar-expand-lg">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="/books">Books <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="/films">Films</a>
+      <a class="nav-item nav-link" href="/podcasts">Podcasts</a>
+      <a class="nav-item nav-link" href="/restaurants">Restaurants</a>
+    </div>
+  </div>
+</nav>
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-    <a class="navbar-brand" href="/">DESEO</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item active">
           <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/my-wishlist">Wishlist</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="/my-wishlist">Trending</a>
         </li>
-        <% if (locals.isLoggedIn) { %>
+        <a class="navbar-brand" href="/">DESEO</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <%# add line for when user logged in they see these  %>
         <li class="nav-item ">
           <a class="nav-link" href="/logout">Log Out</a>
         </li>
-        <% } else { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/my-wishlist">My Wishlist</a>
+        </li>
+        <%# when they are not logged in they see the below %>
         <li class="nav-item">
           <a class="nav-link" href="/register">Register</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/login">Login</a>
         </li>
-        <% } %>
+        <%# close it off here %>
       </ul>
-
-
     </div>
   </nav>

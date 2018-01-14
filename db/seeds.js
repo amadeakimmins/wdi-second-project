@@ -310,14 +310,14 @@ Book
         country: 'United Kingdom'
       }
     },{
-      name: 'Park Chinois',
+      name: 'Flavour Bastard',
       image: 'http://www.moorizzla.com/wp-content/uploads/2016/03/park-chinois-4.jpg',
-      cuisine: 'Chinese',
+      cuisine: 'International',
       address: {
-        line1: '17 Berkeley Street',
-        line2: 'Mayfair',
+        line1: '63-64 Frith Street',
+        line2: 'Soho',
         city: 'London',
-        postcode: 'W1J 8EA',
+        postcode: 'W1D 3JW',
         country: 'United Kingdom'
       }
     },{
