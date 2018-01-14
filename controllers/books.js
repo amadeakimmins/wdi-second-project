@@ -15,7 +15,6 @@ function booksIndex(req, res) {
 
 // NEW
 function booksNew(req, res) {
-  console.log('in here!');
   res.render('books/new');
 }
 
@@ -79,7 +78,6 @@ function booksEdit(req, res) {
 
 // UPDATE
 function booksUpdate(req, res) {
-  console.log('in here');
   console.log(req.body);
   Book
     .findById(req.params.id)

@@ -1,6 +1,6 @@
 const Film = require('../models/film');
 
-// index
+// INDEX
 function filmsIndex(req, res) {
   Film
     .find()
@@ -13,14 +13,98 @@ function filmsIndex(req, res) {
     });
 }
 
-// New
-
+// NEW
 function filmsNew(req, res) {
   res.render('films/new');
+}
+
+// SHOW
+function filmsShow(req, res) {
+  Film
+    .findById(req.params.id)
+    .exec()
+    .then((film) => {
+      if(!film) return res.status(404).send('Not found');
+      res.render('films/show', { film });
+    })
+    .catch((err) =>{
+      res.status(500).render('error', { err });
+    });
+}
+
+//  CREATE
+function filmsCreate(req, res) {
+  console.log(req.body);
+  Film
+    .create(req.body)
+    .then(() => {
+      res.redirect('/films');
+    })
+    .catch((err) => {
+      res.status(500).render('error', { err });
+    });
+}
+
+// EDIT
+function filmsEdit(req, res) {
+  Film
+    .findById(req.params.id)
+    .exec()
+    .then((film) => {
+      if(!film) return res.status(404).send('not found');
+      res.render('films/edit');
+    })
+    .catch((err) => {
+      res.status(500).render('error', { err });
+    });
+}
+
+// UPDATE
+function filmsUpdate(req, res) {
+  console.log(req.body);
+  Film
+    .findById(req.params.id)
+    .exec()
+    .then((film) => {
+      if(!film) return res.status(404).send('Not found');
+
+      film = Object.assign(film, req.body);
+
+      return film.save();
+    })
+    .then((film) => {
+      res.redirect(`/films/${film.id}`);
+    })
+    .catch((err) => {
+      res.status(500).render('error', { err });
+    });
+}
+
+//  DELETE
+function filmsDelete(req, res) {
+  Film
+    .findById(req.params.id)
+    .exec()
+    .then((film) => {
+      if(!film) return res.status(404).send('Not found');
+
+      return film.remove();
+    })
+    .then(() => {
+      res.redirect('/films');
+    })
+    .catch((err) => {
+      res.status(500).render('error', { err });
+    });
 }
 
 
 module.exports = {
   index: filmsIndex,
-  new: filmsNew
+  new: filmsNew,
+  show: filmsShow,
+  create: filmsCreate,
+  edit: filmsEdit,
+  update: filmsUpdate,
+  delete: filmsDelete
 };

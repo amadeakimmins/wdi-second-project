@@ -6,7 +6,6 @@ const films = require('../controllers/films');
 router.get('/', (req, res) => res.render('statics/index'));
 
 // BOOKS ROUTES
-
 router.route('/books')
   .get(books.index)
   .post(books.create);
@@ -23,11 +22,19 @@ router.route('/books/:id/edit')
   .get(books.edit);
 
 //  FILM ROUTES
-
 router.route('/films')
-  .get(films.index);
+  .get(films.index)
+  .post(films.create);
 
-router.route('films/new')
+router.route('/films/new')
   .get(films.new);
+
+router.route('/films/:id')
+  .get(films.show)
+  .put(films.update)
+  .delete(films.delete);
+
+router.route('/films/:id/edit')
+  .get(films.edit);
 
 module.exports = router;
