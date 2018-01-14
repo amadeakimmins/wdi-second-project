@@ -6,10 +6,15 @@ const podcasts = require('../controllers/podcasts');
 const restaurants = require('../controllers/restaurants');
 const registrations = require('../controllers/registrations');
 const sessions = require('../controllers/sessions');
+const myWishlists = require('../controllers/my-wishlists');
 const secureRoute = require('../lib/secureRoute');
 
 
 router.get('/', (req, res) => res.render('statics/index'));
+
+// WISHLIST ROUTES
+// router.get('/my-wishlist')
+//   .get(myWishlists.index);
 
 // BOOKS ROUTES
 router.route('/books')
