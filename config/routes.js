@@ -4,6 +4,7 @@ const books = require('../controllers/books');
 const films = require('../controllers/films');
 const podcasts = require('../controllers/podcasts');
 const restaurants = require('../controllers/restaurants');
+const registrations = require('../controllers/registrations');
 
 router.get('/', (req, res) => res.render('statics/index'));
 
@@ -73,6 +74,9 @@ router.route('/restaurants/:id')
 router.route('/restaurants/:id/edit')
   .get(restaurants.edit);
 
-
+// REGISTER
+router.route('/register')
+  .get(registrations.new)
+  .post(registrations.create);
 
 module.exports = router;
