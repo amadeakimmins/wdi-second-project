@@ -3,6 +3,7 @@ const router = require('express').Router();
 const books = require('../controllers/books');
 const films = require('../controllers/films');
 const podcasts = require('../controllers/podcasts');
+const restaurants = require('../controllers/restaurants');
 
 router.get('/', (req, res) => res.render('statics/index'));
 
@@ -54,5 +55,24 @@ router.route('/podcasts/:id')
 
 router.route('/podcasts/:id/edit')
   .get(podcasts.edit);
+
+
+//  RESTAURANT ROUTES
+router.route('/restaurants')
+  .get(restaurants.index)
+  .post(restaurants.create);
+
+router.route('/restaurants/new')
+  .get(restaurants.new);
+
+router.route('/restaurants/:id')
+  .get(restaurants.show)
+  .put(restaurants.update)
+  .delete(restaurants.delete);
+
+router.route('/restaurants/:id/edit')
+  .get(restaurants.edit);
+
+
 
 module.exports = router;
