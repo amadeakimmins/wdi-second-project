@@ -6,74 +6,76 @@ const podcasts = require('../controllers/podcasts');
 const restaurants = require('../controllers/restaurants');
 const registrations = require('../controllers/registrations');
 const sessions = require('../controllers/sessions');
+const secureRoute = require('../lib/secureRoute');
+
 
 router.get('/', (req, res) => res.render('statics/index'));
 
 // BOOKS ROUTES
 router.route('/books')
   .get(books.index)
-  .post(books.create);
+  .post(secureRoute, books.create);
 
 router.route('/books/new')
-  .get(books.new);
+  .get(secureRoute, books.new);
 
 router.route('/books/:id')
   .get(books.show)
-  .put(books.update)
-  .delete(books.delete);
+  .put(secureRoute, books.update)
+  .delete(secureRoute, books.delete);
 
 router.route('/books/:id/edit')
-  .get(books.edit);
+  .get(secureRoute, books.edit);
 
 //  FILM ROUTES
 router.route('/films')
   .get(films.index)
-  .post(films.create);
+  .post(secureRoute, films.create);
 
 router.route('/films/new')
-  .get(films.new);
+  .get(secureRoute, films.new);
 
 router.route('/films/:id')
   .get(films.show)
-  .put(films.update)
-  .delete(films.delete);
+  .put(secureRoute, films.update)
+  .delete(secureRoute, films.delete);
 
 router.route('/films/:id/edit')
-  .get(films.edit);
+  .get(secureRoute, films.edit);
 
 
 //  PODCAST ROUTES
 router.route('/podcasts')
   .get(podcasts.index)
-  .post(podcasts.create);
+  .post(secureRoute, podcasts.create);
 
 router.route('/podcasts/new')
-  .get(podcasts.new);
+  .get(secureRoute, podcasts.new);
 
 router.route('/podcasts/:id')
   .get(podcasts.show)
-  .put(podcasts.update)
-  .delete(podcasts.delete);
+  .put(secureRoute, podcasts.update)
+  .delete(secureRoute, podcasts.delete);
 
 router.route('/podcasts/:id/edit')
-  .get(podcasts.edit);
+  .get(secureRoute, podcasts.edit);
 
 
 //  RESTAURANT ROUTES
 router.route('/restaurants')
   .get(restaurants.index)
-  .post(restaurants.create);
+  .post(secureRoute, restaurants.create);
 
 router.route('/restaurants/new')
-  .get(restaurants.new);
+  .get(secureRoute, restaurants.new);
 
 router.route('/restaurants/:id')
   .get(restaurants.show)
-  .put(restaurants.update)
-  .delete(restaurants.delete);
+  .put(secureRoute, restaurants.update)
+  .delete(secureRoute, restaurants.delete);
 
 router.route('/restaurants/:id/edit')
-  .get(restaurants.edit);
+  .get(secureRoute, restaurants.edit);
 
 // REGISTER
 router.route('/register')
