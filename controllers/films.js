@@ -13,6 +13,7 @@ function filmsIndex(req, res) {
     });
 }
 
+
 // NEW
 function filmsNew(req, res) {
   res.render('films/new');
@@ -24,15 +25,15 @@ function filmsShow(req, res) {
     .findById(req.params.id)
     .exec()
     .then((film) => {
-      if(!film) return res.status(404).send('Not found');
+      if(!film) return res.status(404).send('Not Found');
       res.render('films/show', { film });
     })
-    .catch((err) =>{
+    .catch((err) => {
       res.status(500).render('error', { err });
     });
 }
 
-//  CREATE
+// CREATE
 function filmsCreate(req, res) {
   console.log(req.body);
   Film
@@ -51,8 +52,8 @@ function filmsEdit(req, res) {
     .findById(req.params.id)
     .exec()
     .then((film) => {
-      if(!film) return res.status(404).send('not found');
-      res.render('films/edit');
+      if(!film) return res.status(404).send('Not found!');
+      res.render('films/edit', { film });
     })
     .catch((err) => {
       res.status(500).render('error', { err });
@@ -80,7 +81,7 @@ function filmsUpdate(req, res) {
     });
 }
 
-//  DELETE
+// DELETE
 function filmsDelete(req, res) {
   Film
     .findById(req.params.id)
@@ -97,8 +98,6 @@ function filmsDelete(req, res) {
       res.status(500).render('error', { err });
     });
 }
-
-
 module.exports = {
   index: filmsIndex,
   new: filmsNew,
