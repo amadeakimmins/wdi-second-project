@@ -9,7 +9,7 @@ function booksIndex(req, res) {
       res.render('books/index', { books });
     })
     .catch((err) => {
-      res.status(500).render('error',  {err});
+      res.status(500).render('error',  { err });
     });
 }
 

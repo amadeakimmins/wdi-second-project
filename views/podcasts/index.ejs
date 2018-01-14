@@ -1,0 +1,14 @@
+<a href="/podcasts/new">Add New Podcast</a>
+<h1>PODCAST</h1>
+
+<ul>
+  <% podcasts.forEach((podcast) => { %>
+    <li>
+    <img src="<%= podcast.image %>" alt="<%= podcast.title %>">
+    <a href="/podcasts/<%= podcast.id %>"><h4><%= podcast.title %></h4></a>
+    <h4>creator: <%= podcast.creator %></h4>
+    <h4>Synopsis: <%= podcast.synopsis %></h4>
+    <h4>Link: <%= podcast.link %></h4>
+    </li>
+    <% }) %>
+  </ul>
