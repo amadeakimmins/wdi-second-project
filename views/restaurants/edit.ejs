@@ -1,0 +1,46 @@
+<main class="container">
+    <div class="row">
+      <section class= "col-8">
+        <h3>Edit Wishlist Restaurant</h3>
+        <form method="POST" action="/restaurants/<%= restaurant.id %>">
+          <input type="hidden" name="_method" value="PUT">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" value="<%=restaurant.name%>" name="name" required>
+          </div>
+          <fieldset>
+            <legend>Address</legend>
+            <div class="form-group">
+              <label for="line1">Line 1</label>
+              <input type="text" class="form-control" name="address[line1]" value="<%=restaurant.address.line1%>" id="line1" required>
+            </div>
+            <div class="form-group">
+              <label for="line2">Line 2</label>
+              <input type="text" class="form-control" name="address[line2]" value="<%=restaurant.address.line2%>" id="line2">
+            </div>
+            <div class="form-group">
+              <label for="city">City</label>
+              <input type="text" class="form-control" name="address[city]" value="<%=restaurant.address.city%>" id="city" required>
+            </div>
+            <div class="form-group">
+              <label for="postcode">Postcode</label>
+              <input type="text" class="form-control" name="address[postcode]" value="<%=restaurant.address.postcode%>" id="postcode" required>
+            </div>
+            <div class="form-group">
+              <label for="country">Country</label>
+              <input type="text" class="form-control" name="address[country]" value="<%=restaurant.address.country%>" id="country" required>
+            </div>
+          </fieldset>
+          <div class="form-group">
+            <label for="cuisine">Cuisine</label>
+            <input type="text" class="form-control" id="cuisine" value="<%=restaurant.cuisine%>" name="cuisine">
+          </div>
+          <div class="form-group">
+            <label for="image">Image</label>
+            <input type="text" class="form-control" id="image" value="<%=restaurant.image%>" name="image">
+          </div>
+          <button type="submit" class="submit-btn btn btn-secondary">Submit</button>
+        </form>
+      </section>
+    </div>
+  </main>
