@@ -9,6 +9,9 @@
     <h4>creator: <%= podcast.creator %></h4>
     <h4>Link: <%= podcast.link %></h4>
     </li>
-    // put in delete button
+    <form method="POST" action="/wishlists/podcasts/<%= podcast.id %>">
+      <input type="hidden" name="_method" value="DELETE">
+      <button>Delete</button>
+    </form>
     <% }) %>
   </ul>
