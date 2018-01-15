@@ -27,6 +27,9 @@ router.route('/books')
   .get(books.index)
   .post(secureRoute, books.create);
 
+router.route('/books/new')
+  .get(secureRoute, books.new);
+
 router.route('/books/:id')
   .get(books.show)
   .put(secureRoute, books.update)
@@ -39,6 +42,9 @@ router.route('/books/:id/edit')
 router.route('/films')
   .get(films.index)
   .post(secureRoute, films.create);
+
+router.route('/films/new')
+  .get(secureRoute, films.new);
 
 router.route('/films/:id')
   .get(films.show)
@@ -54,6 +60,9 @@ router.route('/podcasts')
   .get(podcasts.index)
   .post(secureRoute, podcasts.create);
 
+router.route('/podcasts/new')
+  .get(secureRoute, podcasts.new);
+
 router.route('/podcasts/:id')
   .get(podcasts.show)
   .put(secureRoute, podcasts.update)
@@ -67,6 +76,9 @@ router.route('/podcasts/:id/edit')
 router.route('/restaurants')
   .get(restaurants.index)
   .post(secureRoute, restaurants.create);
+
+router.route('/restaurants/new')
+  .get(secureRoute, restaurants.new);
 
 router.route('/restaurants/:id')
   .get(restaurants.show)
