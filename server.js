@@ -43,8 +43,8 @@ app.use(session({
 }));
 
 app.use(flash());
-
 app.use(authentication);
+
 app.use(routes);
 // app.use(errorHandler);
 

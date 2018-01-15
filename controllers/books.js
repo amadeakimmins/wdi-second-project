@@ -45,22 +45,6 @@ function booksCreate(req, res) {
     });
 }
 
-// function booksCreate(req, res, next) {
-//   console.log(req.body);// this would just be the form data (without the user information)
-//
-//   // create a new property called createdBy and make it equal to the logged in user
-//   // req.body.createdBy = req.user;
-//
-//   Book
-//     .create(req.body)
-//     .then(() => res.redirect('/books'))
-//     .catch((err) => {
-//       if(err.title === 'ValidationError') {
-//         return res.badRequest('/books/new', err.toString());
-//       }
-//       next(err);
-//     });
-// }
 
 // EDIT
 function booksEdit(req, res) {

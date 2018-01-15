@@ -19,6 +19,9 @@ router.route('/wishlists/:category')
   .get(secureRoute, wishlists.show)
   .post(wishlists.create);
 
+router.route('/wishlists/:category/:itemId')
+  .delete(secureRoute, wishlists.delete);
+
 // BOOKS ROUTES
 router.route('/books')
   .get(books.index)

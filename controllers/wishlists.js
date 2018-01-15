@@ -58,12 +58,17 @@ function wishlistsDelete(req, res, next) {
     .then(user => {
       if(!user) return res.status(404).send('Not Found');
 
-      user[req.params.category].id.remove();
+      const category = user[req.params.category];
+
+      const index = category.indexOf(req.params.itemId);
+
+      console.log(index);
+      category.splice(index, 1);
 
       return user.save();
     })
     .then(() => {
-      res.redirect(`/${req.params.category}`);
+      res.redirect(`/wishlists/${req.params.category}`);
     })
     .catch(next);
 }

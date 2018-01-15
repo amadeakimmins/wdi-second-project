@@ -14,8 +14,11 @@
 </head>
 <body>
   <%- include ./partials/_header %>
-  <main class="container">
-    <%- body %>
-  </main>
-</body>
-</html>
+    <main class="container">
+      <% for (const type in messages) { %>
+        <p class="alert alert-<%= type %>"><%= messages[type] %></p>
+      <% } %>
+      <%- body %>
+    </main>
+  </body>
+  </html>
