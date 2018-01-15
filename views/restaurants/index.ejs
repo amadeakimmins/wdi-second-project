@@ -1,5 +1,5 @@
-<a href="/restaurants/new">Add New Restaurant</a>
-<h1>RESTAURANT</h1>
+<%# <a href="/restaurants/new">Add New Restaurant</a> %>
+<h1>RESTAURANTS</h1>
 
 <ul>
   <% restaurants.forEach((restaurant) => { %>
@@ -15,5 +15,9 @@
     </p>
     <h4>Cuisine: <%= restaurant.cuisine %></h4>
     </li>
+    <form method="POST" action="/wishlists/restaurants">
+    <input type="hidden" value=<%= restaurant.id %>
+      <a href="/wishlists/restaurants"><button>Add to Wishlist</button></a>
+    </form>
     <% }) %>
   </ul>

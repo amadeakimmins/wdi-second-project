@@ -1,5 +1,5 @@
-<a href="/podcasts/new">Add New Podcast</a>
-<h1>PODCAST</h1>
+<%# <a href="/podcasts/new">Add New Podcast</a> %>
+<h1>PODCASTS</h1>
 
 <ul>
   <% podcasts.forEach((podcast) => { %>
@@ -10,5 +10,9 @@
     <h4>Synopsis: <%= podcast.synopsis %></h4>
     <h4>Link: <%= podcast.link %></h4>
     </li>
+    <form method="POST" action="/wishlists/podcasts">
+    <input type="hidden" value=<%= podcast.id %>
+      <a href="/wishlists/podcasts"><button>Add to Wishlist</button></a>
+    </form>
     <% }) %>
   </ul>

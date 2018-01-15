@@ -6,15 +6,19 @@ const podcasts = require('../controllers/podcasts');
 const restaurants = require('../controllers/restaurants');
 const registrations = require('../controllers/registrations');
 const sessions = require('../controllers/sessions');
-const myWishlists = require('../controllers/my-wishlists');
+const myWishlists = require('../controllers/myWishlists');
 const secureRoute = require('../lib/secureRoute');
 
 
 router.get('/', (req, res) => res.render('statics/index'));
 
 // WISHLIST ROUTES
-// router.get('/my-wishlist')
-//   .get(myWishlists.index);
+router.route('/myWishlist')
+  .get(myWishlists.index);
+
+router.route('/wishlists/:category')
+  .get(myWishlists.show);
+// .post(myWishlists.create);
 
 // BOOKS ROUTES
 router.route('/books')
@@ -92,7 +96,7 @@ router.route('/login')
   .get(sessions.new)
   .post(sessions.create);
 
-// router.route('/logout')
-//   .get(sessions.delete);
+router.route('/logout')
+  .get(sessions.delete);
 
 module.exports = router;

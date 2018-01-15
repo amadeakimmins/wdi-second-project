@@ -1,4 +1,4 @@
-<a href="/films/new">Add New Film</a>
+<%# <a href="/films/new">Add New Film</a> %>
 <h1>FILMS</h1>
 
 <ul>
@@ -12,5 +12,9 @@
     <h4>Synopsis: <%= film.synopsis %></h4>
     <h4>Trailer: <%= film.trailer %></h4>
     </li>
+    <form method="POST" action="/wishlists/films">
+    <input type="hidden" value=<%= film.id %>
+      <a href="/wishlists/films"><button>Add to Wishlist</button></a>
+    </form>
     <% }) %>
   </ul>

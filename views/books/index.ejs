@@ -1,4 +1,4 @@
-<a href="/books/new">Add New Book</a>
+<%# <a href="/books/new">Add New Book</a> %>
 <h1>BOOKS</h1>
 
 <ul>
@@ -9,5 +9,9 @@
     <h4>Author: <%= book.author %></h4>
     <h4>Synopsis: <%= book.synopsis %></h4>
     </li>
+    <form method="POST" action="/wishlists/books">
+    <input type="hidden" value=<%= book.id %>
+      <a href="/wishlists/books"><button href="/wishlists/books">Add to Wishlist</button></a>
+    </form>
     <% }) %>
   </ul>
