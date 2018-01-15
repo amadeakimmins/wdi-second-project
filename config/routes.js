@@ -27,9 +27,6 @@ router.route('/books')
   .get(books.index)
   .post(secureRoute, books.create);
 
-router.route('/books/new')
-  .get(secureRoute, books.new);
-
 router.route('/books/:id')
   .get(books.show)
   .put(secureRoute, books.update)
