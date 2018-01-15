@@ -48,47 +48,30 @@ function wishlistsCreate(req, res, next) {
     .catch(next);
 }
 
-// function createCommentRoute(req, res, next) {
-//
-//   req.body.createdBy = req.user; //attach the logged in user to the body of the request
-//
-//   Hotel
-//     .findById(req.params.id)
-//     .exec()
-//     .then((hotel) => {
-//       if(!hotel) return res.notFound();
-//
-//       hotel.comments.push(req.body); // pushing the comments into the body
-//       return hotel.save();
-//     })
-//     .then((hotel) => {
-//       res.redirect(`/hotels/${hotel.id}`);
-//     })
-//     .catch(next);
-// }
-
-// function deleteCommentRoute(req, res, next) {
-//   Hotel
-//     .findById(req.params.id)
-//     .exec()
-//     .then((hotel) => {
-//       if(!hotel) return res.notFound();
-//
-//       const comment = hotel.comments.id(req.params.commentId);
-//       comment.remove();
-//
-//       return hotel.save();
-//     })
-//     .then((hotel) => {
-//       res.redirect(`/hotels/${hotel.id}`);
-//     })
-//     .catch(next);
-// }
 
 // create a delete/ done resource which removes from wishlist
+function wishlistsDelete(req, res, next) {
+
+  User
+    .findById(req.user.id)
+    .exec()
+    .then(user => {
+      if(!user) return res.status(404).send('Not Found');
+
+      user[req.params.category].id.remove();
+
+      return user.save();
+    })
+    .then(() => {
+      res.redirect(`/${req.params.category}`);
+    })
+    .catch(next);
+}
+
 
 module.exports = {
   index: wishlistsIndex,
   show: wishlistsShow,
-  create: wishlistsCreate
+  create: wishlistsCreate,
+  delete: wishlistsDelete
 };

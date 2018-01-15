@@ -9,8 +9,8 @@
     <h4>Author: <%= book.author %></h4>
     </li>
     <form method="POST" action="/wishlists/books">
-    <input type="hidden" value=<%= book.id %>
-      <a href="/wishlists/books"><button href="/wishlists/books">Add to Wishlist</button></a>
+      <input type="hidden" value="<%= book.id %>" name="id">
+      <button>Add to Wishlist</button>
     </form>
     <% }) %>
   </ul>

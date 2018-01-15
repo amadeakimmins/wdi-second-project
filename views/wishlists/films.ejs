@@ -11,8 +11,8 @@
     <h4>Trailer: <%= film.trailer %></h4>
     </li>
     <form method="POST" action="/wishlists/films">
-    <input type="hidden" value=<%= film.id %>
-      <a href="/wishlists/films"><button>Add to Wishlist</button></a>
+      <input type="hidden" value="<%= film.id %>" name="id">
+      <button>Add to Wishlist</button>
     </form>
     <% }) %>
   </ul>
