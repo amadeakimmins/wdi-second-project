@@ -8,7 +8,7 @@ const methodOverride       = require('method-override');
 mongoose.Promise           = require('bluebird');
 const session              = require('express-session');
 const flash                = require('express-flash');
-// const customResponses = require('./lib/customResponses');
+const customResponses = require('./lib/customResponses');
 const authentication = require('./lib/authentication');
 // const errorHandler = require('./lib/errorHandler');
 
@@ -25,7 +25,7 @@ app.use(expressLayouts);
 app.use(express.static(`${__dirname}/public`));
 if(env === 'development') app.use(morgan('dev'));
 
-// app.use(customResponses);
+app.use(customResponses);
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(methodOverride(function (req) {
