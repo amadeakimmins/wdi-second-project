@@ -10,7 +10,7 @@ const session              = require('express-session');
 const flash                = require('express-flash');
 const customResponses = require('./lib/customResponses');
 const authentication = require('./lib/authentication');
-// const errorHandler = require('./lib/errorHandler');
+const errorHandler = require('./lib/errorHandler');
 
 const { port, env, dbURI } = require('./config/environment');
 
@@ -46,6 +46,6 @@ app.use(flash());
 app.use(authentication);
 
 app.use(routes);
-// app.use(errorHandler);
+app.use(errorHandler);
 
 app.listen(port, () => console.log(`Express is listening on port ${port}`));
