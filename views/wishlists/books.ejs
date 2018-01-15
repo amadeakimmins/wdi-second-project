@@ -1,1 +1,15 @@
 <h1>books</h1>
+
+<ul>
+  <% user.books.forEach((book) => { %>
+    <li>
+    <img src="<%= book.image %>" alt="<%= book.title %>">
+    <a href="/books/<%= book.id %>"><h4><%= book.title %></h4></a>
+    <h4>Author: <%= book.author %></h4>
+    </li>
+    <form method="POST" action="/wishlists/books">
+    <input type="hidden" value=<%= book.id %>
+      <a href="/wishlists/books"><button href="/wishlists/books">Add to Wishlist</button></a>
+    </form>
+    <% }) %>
+  </ul>

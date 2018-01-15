@@ -1,1 +1,18 @@
 <h1>films</h1>
+
+<ul>
+  <% user.films.forEach((film) => { %>
+    <li>
+    <img src="<%= film.image %>" alt="<%= film.title %>">
+    <a href="/films/<%= film.id %>"><h4><%= film.title %></h4></a>
+    <h4>Year: <%= film.year %></h4>
+    <h4>Average Rating: <%= film.averageRating %></h4>
+    <h4>director: <%= film.director %></h4>
+    <h4>Trailer: <%= film.trailer %></h4>
+    </li>
+    <form method="POST" action="/wishlists/films">
+    <input type="hidden" value=<%= film.id %>
+      <a href="/wishlists/films"><button>Add to Wishlist</button></a>
+    </form>
+    <% }) %>
+  </ul>

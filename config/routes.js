@@ -1,24 +1,23 @@
-const router = require('express').Router();
-
-const books = require('../controllers/books');
-const films = require('../controllers/films');
-const podcasts = require('../controllers/podcasts');
-const restaurants = require('../controllers/restaurants');
+const router        = require('express').Router();
+const books         = require('../controllers/books');
+const films         = require('../controllers/films');
+const podcasts      = require('../controllers/podcasts');
+const restaurants   = require('../controllers/restaurants');
 const registrations = require('../controllers/registrations');
-const sessions = require('../controllers/sessions');
-const wishlists = require('../controllers/wishlists');
-const secureRoute = require('../lib/secureRoute');
+const sessions      = require('../controllers/sessions');
+const wishlists     = require('../controllers/wishlists');
+const secureRoute   = require('../lib/secureRoute');
 
 
 router.get('/', (req, res) => res.render('statics/index'));
 
 // WISHLIST ROUTES
 router.route('/wishlist')
-  .get(wishlists.index);
+  .get(secureRoute, wishlists.index);
 
 router.route('/wishlists/:category')
-  .get(wishlists.show);
-// .post(myWishlists.create);
+  .get(secureRoute, wishlists.show)
+  .post(wishlists.create);
 
 // BOOKS ROUTES
 router.route('/books')

@@ -10,8 +10,8 @@
     <h4>Link: <%= podcast.link %></h4>
     </li>
     <form method="POST" action="/wishlists/podcasts">
-    <input type="hidden" value=<%= podcast.id %>
-      <a href="/wishlists/podcasts"><button>Add to Wishlist</button></a>
+      <input type="hidden" value="<%= podcast.id %>" name="id">
+      <button>Add to Wishlist</button>
     </form>
     <% }) %>
   </ul>

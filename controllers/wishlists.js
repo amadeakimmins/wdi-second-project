@@ -33,20 +33,17 @@ function wishlistsShow(req, res, next) {
 // adding item to the chosen wishlist
 function wishlistsCreate(req, res, next) {
 
-  req.body.category = req.user;
-
   User
     .findById(req.user.id)
-    // .populate(req.params.category)
     .exec()
     .then(user => {
       if(!user) return res.status(404).send('Not found');
 
-      user.book.push(req.body);
+      user[req.params.category].push(req.body.id);
       return user.save();
     })
-    .then(user => {
-      res.redirect(`wishlists/${req.params.category}`);
+    .then(() => {
+      res.redirect(`/${req.params.category}`);
     })
     .catch(next);
 }
@@ -62,6 +59,24 @@ function wishlistsCreate(req, res, next) {
 //       if(!hotel) return res.notFound();
 //
 //       hotel.comments.push(req.body); // pushing the comments into the body
+//       return hotel.save();
+//     })
+//     .then((hotel) => {
+//       res.redirect(`/hotels/${hotel.id}`);
+//     })
+//     .catch(next);
+// }
+
+// function deleteCommentRoute(req, res, next) {
+//   Hotel
+//     .findById(req.params.id)
+//     .exec()
+//     .then((hotel) => {
+//       if(!hotel) return res.notFound();
+//
+//       const comment = hotel.comments.id(req.params.commentId);
+//       comment.remove();
+//
 //       return hotel.save();
 //     })
 //     .then((hotel) => {

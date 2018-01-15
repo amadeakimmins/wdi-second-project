@@ -7,7 +7,6 @@ const mongoose             = require('mongoose');
 const methodOverride       = require('method-override');
 mongoose.Promise           = require('bluebird');
 const session              = require('express-session');
-const User                 = require('./models/user');
 const flash                = require('express-flash');
 // const customResponses = require('./lib/customResponses');
 const authentication = require('./lib/authentication');
