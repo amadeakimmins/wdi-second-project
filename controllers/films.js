@@ -13,12 +13,6 @@ function filmsIndex(req, res) {
     });
 }
 
-
-// NEW
-function filmsNew(req, res) {
-  res.render('films/new');
-}
-
 // SHOW
 function filmsShow(req, res) {
   Film
@@ -100,7 +94,6 @@ function filmsDelete(req, res) {
 }
 module.exports = {
   index: filmsIndex,
-  new: filmsNew,
   show: filmsShow,
   create: filmsCreate,
   edit: filmsEdit,

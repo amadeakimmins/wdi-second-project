@@ -14,11 +14,6 @@ function podcastsIndex(req, res) {
 }
 
 
-// NEW
-function podcastsNew(req, res) {
-  res.render('podcasts/new');
-}
-
 // SHOW
 function podcastsShow(req, res) {
   Podcast
@@ -100,7 +95,6 @@ function podcastsDelete(req, res) {
 }
 module.exports = {
   index: podcastsIndex,
-  new: podcastsNew,
   show: podcastsShow,
   create: podcastsCreate,
   edit: podcastsEdit,

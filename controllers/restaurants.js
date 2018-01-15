@@ -13,12 +13,6 @@ function restaurantsIndex(req, res) {
     });
 }
 
-
-// NEW
-function restaurantsNew(req, res) {
-  res.render('restaurants/new');
-}
-
 // SHOW
 function restaurantsShow(req, res) {
   Restaurant
@@ -100,7 +94,6 @@ function restaurantsDelete(req, res) {
 }
 module.exports = {
   index: restaurantsIndex,
-  new: restaurantsNew,
   show: restaurantsShow,
   create: restaurantsCreate,
   edit: restaurantsEdit,

@@ -13,11 +13,6 @@ function booksIndex(req, res) {
     });
 }
 
-// NEW
-function booksNew(req, res) {
-  res.render('books/new');
-}
-
 // SHOW
 function booksShow(req, res) {
   Book
@@ -102,7 +97,6 @@ function booksDelete(req, res) {
 
 module.exports = {
   index: booksIndex,
-  new: booksNew,
   show: booksShow,
   create: booksCreate,
   edit: booksEdit,
