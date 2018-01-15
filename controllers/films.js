@@ -1,18 +1,13 @@
 const Film = require('../models/film');
 
 // INDEX
-function filmsIndex(req, res) {
+function filmsIndex(req, res, next) {
   Film
     .find()
     .exec()
-    .then((films) => {
-      res.render('films/index', { films });
-    })
-    .catch((err) => {
-      res.status(500).render('error', { err });
-    });
+    .then((films) => res.render('films/index', { films }))
+    .catch(next);
 }
-
 
 // NEW
 function filmsNew(req, res) {
@@ -20,69 +15,67 @@ function filmsNew(req, res) {
 }
 
 // SHOW
-function filmsShow(req, res) {
+function filmsShow(req, res, next) {
   Film
     .findById(req.params.id)
     .exec()
     .then((film) => {
-      if(!film) return res.status(404).send('Not Found');
+      if(!film) return res.notFound();
       res.render('films/show', { film });
     })
-    .catch((err) => {
-      res.status(500).render('error', { err });
-    });
+    .catch(next);
 }
 
 // CREATE
-function filmsCreate(req, res) {
+function filmsCreate(req, res, next) {
   console.log(req.body);
   Film
     .create(req.body)
-    .then(() => {
-      res.redirect('/films');
-    })
+    .then(() => res.redirect('/films'))
     .catch((err) => {
-      res.status(500).render('error', { err });
+      if(err.name === 'ValidationError') {
+        return res.badRequest('/films/new', err.toString());
+      }
+      next(err);
     });
 }
 
 // EDIT
-function filmsEdit(req, res) {
+function filmsEdit(req, res, next) {
   Film
     .findById(req.params.id)
     .exec()
     .then((film) => {
-      if(!film) return res.status(404).send('Not found!');
+      if(!film) return res.notFound();
       res.render('films/edit', { film });
     })
-    .catch((err) => {
-      res.status(500).render('error', { err });
-    });
+    .catch(next);
 }
 
 // UPDATE
-function filmsUpdate(req, res) {
+function filmsUpdate(req, res, next) {
   console.log(req.body);
   Film
     .findById(req.params.id)
     .exec()
     .then((film) => {
-      if(!film) return res.status(404).send('Not found');
+      if(!film) return res.notFound();
 
       film = Object.assign(film, req.body);
 
       return film.save();
     })
-    .then((film) => {
-      res.redirect(`/films/${film.id}`);
-    })
+    .then((film) => res.redirect(`/films/${film.id}`))
     .catch((err) => {
-      res.status(500).render('error', { err });
+      if(err.name === 'ValidationError') {
+        return res.badRequest(`/films/${req.params.id}/edit`, err.toString());
+      }
+      next(err);
     });
 }
 
 // DELETE
-function filmsDelete(req, res) {
+function filmsDelete(req, res, next) {
   Film
     .findById(req.params.id)
     .exec()
@@ -91,12 +84,8 @@ function filmsDelete(req, res) {
 
       return film.remove();
     })
-    .then(() => {
-      res.redirect('/films');
-    })
-    .catch((err) => {
-      res.status(500).render('error', { err });
-    });
+    .then(() => res.redirect('/films'))
+    .catch(next);
 }
 module.exports = {
   index: filmsIndex,

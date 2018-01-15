@@ -1,16 +1,12 @@
 const Restaurant = require('../models/restaurant');
 
 // INDEX
-function restaurantsIndex(req, res) {
+function restaurantsIndex(req, res, next) {
   Restaurant
     .find()
     .exec()
-    .then((restaurants) => {
-      res.render('restaurants/index', { restaurants });
-    })
-    .catch((err) => {
-      res.status(500).render('error', { err });
-    });
+    .then((restaurants) => res.render('restaurants/index', { restaurants }))
+    .catch(next);
 }
 
 
@@ -20,83 +16,76 @@ function restaurantsNew(req, res) {
 }
 
 // SHOW
-function restaurantsShow(req, res) {
+function restaurantsShow(req, res, next) {
   Restaurant
     .findById(req.params.id)
     .exec()
     .then((restaurant) => {
-      if(!restaurant) return res.status(404).send('Not Found');
+      if(!restaurant) return res.notFound();
       res.render('restaurants/show', { restaurant });
     })
-    .catch((err) => {
-      res.status(500).render('error', { err });
-    });
+    .catch(next);
 }
 
 // CREATE
-function restaurantsCreate(req, res) {
+function restaurantsCreate(req, res, next) {
   console.log(req.body);
   Restaurant
     .create(req.body)
-    .then(() => {
-      res.redirect('/restaurants');
-    })
+    .then(() => res.redirect('/restaurants'))
     .catch((err) => {
-      res.status(500).render('error', { err });
+      if(err.name === 'ValidationError') {
+        return res.badRequest('/restaurants/new', err.toString());
+      }
+      next(err);
     });
 }
 
 // EDIT
-function restaurantsEdit(req, res) {
+function restaurantsEdit(req, res, next) {
   Restaurant
     .findById(req.params.id)
     .exec()
     .then((restaurant) => {
-      if(!restaurant) return res.status(404).send('Not found!');
+      if(!restaurant) return res.notFound();
       res.render('restaurants/edit', { restaurant });
     })
-    .catch((err) => {
-      res.status(500).render('error', { err });
-    });
+    .catch(next);
 }
 
 // UPDATE
-function restaurantsUpdate(req, res) {
+function restaurantsUpdate(req, res, next) {
   console.log(req.body);
   Restaurant
     .findById(req.params.id)
     .exec()
     .then((restaurant) => {
-      if(!restaurant) return res.status(404).send('Not found');
+      if(!restaurant) return res.notFound();
 
       restaurant = Object.assign(restaurant, req.body);
 
       return restaurant.save();
     })
-    .then((restaurant) => {
-      res.redirect(`/restaurants/${restaurant.id}`);
-    })
+    .then((restaurant) => res.redirect(`/restaurants/${restaurant.id}`))
     .catch((err) => {
-      res.status(500).render('error', { err });
+      if(err.name === 'ValidationError') {
+        return res.badRequest(`/restaurants/${req.params.id}/edit`, err.toString());
+      }
+      next(err);
     });
 }
 
 // DELETE
-function restaurantsDelete(req, res) {
+function restaurantsDelete(req, res, next) {
   Restaurant
     .findById(req.params.id)
     .exec()
     .then((restaurant) => {
       if(!restaurant) return res.status(404).send('Not found');
-
       return restaurant.remove();
     })
-    .then(() => {
-      res.redirect('/restaurants');
-    })
-    .catch((err) => {
-      res.status(500).render('error', { err });
-    });
+    .then(() => res.redirect('/restaurants'))
+    .catch(next);
 }
 module.exports = {
   index: restaurantsIndex,

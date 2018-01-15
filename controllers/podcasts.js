@@ -1,16 +1,12 @@
 const Podcast = require('../models/podcast');
 
 // INDEX
-function podcastsIndex(req, res) {
+function podcastsIndex(req, res, next) {
   Podcast
     .find()
     .exec()
-    .then((podcasts) => {
-      res.render('podcasts/index', { podcasts });
-    })
-    .catch((err) => {
-      res.status(500).render('error', { err });
-    });
+    .then((podcasts) => res.render('podcasts/index', { podcasts }))
+    .catch(next);
 }
 
 
@@ -20,83 +16,76 @@ function podcastsNew(req, res) {
 }
 
 // SHOW
-function podcastsShow(req, res) {
+function podcastsShow(req, res, next) {
   Podcast
     .findById(req.params.id)
     .exec()
     .then((podcast) => {
-      if(!podcast) return res.status(404).send('Not Found');
+      if(!podcast) return res.notFound();
       res.render('podcasts/show', { podcast });
     })
-    .catch((err) => {
-      res.status(500).render('error', { err });
-    });
+    .catch(next);
 }
 
 // CREATE
-function podcastsCreate(req, res) {
+function podcastsCreate(req, res, next) {
   console.log(req.body);
   Podcast
     .create(req.body)
-    .then(() => {
-      res.redirect('/podcasts');
-    })
+    .then(() => res.redirect('/podcasts'))
     .catch((err) => {
-      res.status(500).render('error', { err });
+      if(err.name === 'ValidationError') {
+        return res.badRequest('/podcasts/new', err.toString());
+      }
+      next(err);
     });
 }
 
 // EDIT
-function podcastsEdit(req, res) {
+function podcastsEdit(req, res, next) {
   Podcast
     .findById(req.params.id)
     .exec()
     .then((podcast) => {
-      if(!podcast) return res.status(404).send('Not found!');
+      if(!podcast) return res.notFound();
       res.render('podcasts/edit', { podcast });
     })
-    .catch((err) => {
-      res.status(500).render('error', { err });
-    });
+    .catch(next);
 }
 
 // UPDATE
-function podcastsUpdate(req, res) {
+function podcastsUpdate(req, res, next) {
   console.log(req.body);
   Podcast
     .findById(req.params.id)
     .exec()
     .then((podcast) => {
-      if(!podcast) return res.status(404).send('Not found');
+      if(!podcast) return res.notFound();
 
       podcast = Object.assign(podcast, req.body);
 
       return podcast.save();
     })
-    .then((podcast) => {
-      res.redirect(`/podcasts/${podcast.id}`);
-    })
+    .then((podcast) => res.redirect(`/podcasts/${podcast.id}`))
     .catch((err) => {
-      res.status(500).render('error', { err });
+      if(err.name === 'ValidationError') {
+        return res.badRequest(`/podcasts/${req.params.id}/edit`, err.toString());
+      }
+      next(err);
     });
 }
 
 // DELETE
-function podcastsDelete(req, res) {
+function podcastsDelete(req, res, next) {
   Podcast
     .findById(req.params.id)
     .exec()
     .then((podcast) => {
       if(!podcast) return res.status(404).send('Not found');
-
       return podcast.remove();
     })
-    .then(() => {
-      res.redirect('/podcasts');
-    })
-    .catch((err) => {
-      res.status(500).render('error', { err });
-    });
+    .then(() => res.redirect('/podcasts'))
+    .catch(next);
 }
 module.exports = {
   index: podcastsIndex,

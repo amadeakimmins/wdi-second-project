@@ -2,32 +2,32 @@ const User = require('../models/user');
 
 // render the login form
 function sessionNew(req, res) {
-  console.log('in here');
   res.render('sessions/new');
 }
 
 // login a user
-function sessionCreate(req, res) {
+function sessionCreate(req, res, next) {
   User
     .findOne({ email: req.body.email })
     .exec()
     .then((user) => {
       if(!user || !user.validatePassword(req.body.password)) {
-        return res.status(401).render('sessions/new', { message: 'Unrecognised credentials' });
+        req.flash('danger', 'Unknown email/password combination');
+        return res.redirect('/login');
       }
+
       req.session.userId = user.id;
+      req.user = user;
+
       req.flash('info', `Welcome, ${user.username} 🤗`);
       res.redirect('/');
     })
-    .catch((err) => res.status(500).send(err));
+    .catch(next);
 }
 
 //logout
 function sessionDelete(req, res) {
-  console.log('is logged out');
-  return req.session.regenerate(() => {
-    res.redirect('/');
-  });
+  return req.session.regenerate(() => res.redirect('/'));
 }
 
 

@@ -7,9 +7,7 @@ function wishlistsIndex(req, res, next) {
     .populate('books')
     .exec()
     .then(user => {
-      console.log(user);
-      if(!user) return res.status(404).send('Not Found');
-
+      if(!user) return res.notFound();
       return res.render('wishlists/index', { user });
     })
     .catch(next);
@@ -22,9 +20,7 @@ function wishlistsShow(req, res, next) {
     .populate(req.params.category)
     .exec()
     .then(user => {
-      console.log(user);
       if(!user) return res.status(404).send('Not Found');
-
       return res.render(`wishlists/${req.params.category}`, { user });
     })
     .catch(next);
@@ -32,12 +28,11 @@ function wishlistsShow(req, res, next) {
 
 // adding item to the chosen wishlist
 function wishlistsCreate(req, res, next) {
-
   User
     .findById(req.user.id)
     .exec()
     .then(user => {
-      if(!user) return res.status(404).send('Not found');
+      if(!user) return res.notFound();
 
       user[req.params.category].push(req.body.id);
       return user.save();
@@ -56,7 +51,7 @@ function wishlistsDelete(req, res, next) {
     .findById(req.user.id)
     .exec()
     .then(user => {
-      if(!user) return res.status(404).send('Not Found');
+      if(!user) return res.notFound();
 
       const category = user[req.params.category];
 

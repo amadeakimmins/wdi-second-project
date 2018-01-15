@@ -1,16 +1,12 @@
 const Book = require('../models/book');
 
 // INDEX
-function booksIndex(req, res) {
+function booksIndex(req, res, next) {
   Book
     .find()
     .exec()
-    .then((books) => {
-      res.render('books/index', { books });
-    })
-    .catch((err) => {
-      res.status(500).render('error',  { err });
-    });
+    .then((books) => res.render('books/index', { books }))
+    .catch(next);
 }
 
 // NEW
@@ -19,70 +15,68 @@ function booksNew(req, res) {
 }
 
 // SHOW
-function booksShow(req, res) {
+function booksShow(req, res, next) {
   Book
     .findById(req.params.id)
     .exec()
     .then((book) => {
-      if(!book) return res.status(404).send('Not Found');
+      if(!book) return res.notFound();
       res.render('books/show', { book });
     })
-    .catch((err) => {
-      res.status(500).render('error', { err });
-    });
+    .catch(next);
 }
 
 // CREATE
-function booksCreate(req, res) {
+function booksCreate(req, res, next) {
   console.log(req.body);
   Book
     .create(req.body)
-    .then(() => {
-      res.redirect('/books');
-    })
+    .then(() => res.redirect('/books'))
     .catch((err) => {
-      res.status(500).render('error', { err });
+      if(err.name === 'ValidationError') {
+        return res.badRequest('/books/new', err.toString());
+      }
+      next(err);
     });
 }
 
-
 // EDIT
-function booksEdit(req, res) {
+function booksEdit(req, res, next) {
   Book
     .findById(req.params.id)
     .exec()
     .then((book) => {
-      if(!book) return res.status(404).send('Not found!');
+      if(!book) return res.notFound();
       res.render('books/edit', { book });
     })
-    .catch((err) => {
-      res.status(500).render('error', { err });
-    });
+    .catch(next);
 }
 
 // UPDATE
-function booksUpdate(req, res) {
+function booksUpdate(req, res, next) {
   console.log(req.body);
   Book
     .findById(req.params.id)
     .exec()
     .then((book) => {
-      if(!book) return res.status(404).send('Not found');
+      if(!book) return res.notFound();
 
       book = Object.assign(book, req.body);
 
       return book.save();
     })
-    .then((book) => {
-      res.redirect(`/books/${book.id}`);
-    })
+    .then((book) => res.redirect(`/books/${book.id}`))
     .catch((err) => {
-      res.status(500).render('error', { err });
+      if(err.name === 'ValidationError') {
+        return res.badRequest(`/books/${req.params.id}/edit`),
+        err.toString();
+      }
+      next(err);
     });
 }
 
 // DELETE
-function booksDelete(req, res) {
+function booksDelete(req, res, next) {
   Book
     .findById(req.params.id)
     .exec()
@@ -91,12 +85,8 @@ function booksDelete(req, res) {
 
       return book.remove();
     })
-    .then(() => {
-      res.redirect('/books');
-    })
-    .catch((err) => {
-      res.status(500).render('error', { err });
-    });
+    .then(() => res.redirect('/books'))
+    .catch(next);
 }
 
 
