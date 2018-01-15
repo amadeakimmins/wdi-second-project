@@ -7,7 +7,6 @@
     <img src="<%= book.image %>" alt="<%= book.title %>">
     <a href="/books/<%= book.id %>"><h4><%= book.title %></h4></a>
     <h4>Author: <%= book.author %></h4>
-    <h4>Synopsis: <%= book.synopsis %></h4>
     </li>
     <form method="POST" action="/wishlists/books">
     <input type="hidden" value=<%= book.id %>
