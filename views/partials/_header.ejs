@@ -5,7 +5,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="/books">Books <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link active" href="/books">Books</a>
       <a class="nav-item nav-link" href="/films">Films</a>
       <a class="nav-item nav-link" href="/podcasts">Podcasts</a>
       <a class="nav-item nav-link" href="/restaurants">Restaurants</a>
@@ -18,19 +18,16 @@
         <li class="nav-item active">
           <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/wishlist">Trending</a>
-        </li>
         <a class="navbar-brand" href="/">DESEO</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
       <% if (locals.isLoggedIn) { %>
-        <li class="nav-item ">
-          <a class="nav-link" href="/logout">Log Out</a>
-        </li>
         <li class="nav-item">
           <a class="nav-link" href="/wishlist">My Wishlist</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="/logout">Log Out</a>
         </li>
       <% } else { %>
         <li class="nav-item">

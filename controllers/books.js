@@ -81,7 +81,7 @@ function booksDelete(req, res, next) {
     .findById(req.params.id)
     .exec()
     .then((book) => {
-      if(!book) return res.status(404).send('Not found');
+      if(!book) return res.notFound();
 
       return book.remove();
     })

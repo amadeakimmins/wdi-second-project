@@ -1,10 +1,10 @@
 <%# <a href="/restaurants/new">Add New Restaurant</a> %>
 <h1>RESTAURANTS</h1>
 
-<ul>
+<ul class="restaurants">
   <% restaurants.forEach((restaurant) => { %>
     <li>
-    <img src="<%= restaurant.image %>" alt="<%= restaurant.name %>">
+    <img class="restaurant-image" src="<%= restaurant.image %>" alt="<%= restaurant.name %>">
     <a href="/restaurants/<%= restaurant.id %>"><h4><%= restaurant.name %></h4></a>
     <p>
       <%= restaurant.address.line1 %><br>

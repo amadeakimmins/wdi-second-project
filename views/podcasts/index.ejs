@@ -1,13 +1,12 @@
 <%# <a href="/podcasts/new">Add New Podcast</a> %>
 <h1>PODCASTS</h1>
 
-<ul>
+<ul class="podcasts">
   <% podcasts.forEach((podcast) => { %>
     <li>
-    <img src="<%= podcast.image %>" alt="<%= podcast.title %>">
+    <img class="podcast-image" src="<%= podcast.image %>" alt="<%= podcast.title %>">
     <a href="/podcasts/<%= podcast.id %>"><h4><%= podcast.title %></h4></a>
     <h4>creator: <%= podcast.creator %></h4>
-    <h4>Link: <%= podcast.link %></h4>
     </li>
     <form method="POST" action="/wishlists/podcasts">
       <input type="hidden" value="<%= podcast.id %>" name="id">

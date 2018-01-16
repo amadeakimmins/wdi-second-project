@@ -1,10 +1,10 @@
 <a href="/books/new">Add New Book</a>
 <h1>BOOKS</h1>
 
-<ul>
+<ul class="books">
   <% books.forEach((book) => { %>
     <li>
-    <img src="<%= book.image %>" alt="<%= book.title %>">
+    <img class="book-image" src="<%= book.image %>" alt="<%= book.title %>">
     <a href="/books/<%= book.id %>"><h4><%= book.title %></h4></a>
     <h4>Author: <%= book.author %></h4>
     </li>
