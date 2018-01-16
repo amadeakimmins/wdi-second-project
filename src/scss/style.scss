@@ -1,8 +1,52 @@
 // import scss partials here
 body {
-  font-family: 'Helvetica', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
+// header
+.navbar {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+// .jumbotron {
+//     padding: 5px 40px;
+//     background-color: #eec3c4;
+//   }
+
+.corner-logo {
+  width: 50px;
+  height: 60px;
+}
+
+.logo {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+  width: 120px;
+  height: 130px;
+}
+
+
+// HOMEPAGE
+.carousel {
+  margin-top: 15px;
+}
+
+.text-about-website {
+  border: 0.5px dotted #eec3c4;
+  padding: 10px;
+}
+
+.register-homepage-form {
+  padding: 65px 20px 40px 20px;
+}
+.register-input-box {
+  margin-bottom: 3px;
+}
+
+
+// BOOKS - SEED DATA
 .books {
   list-style-type: none;
   padding: 0;
@@ -21,6 +65,7 @@ body {
   margin: 0 auto;
 }
 
+// FILMS - SEED DATA
 .films {
   list-style-type: none;
   padding: 0;
@@ -38,6 +83,7 @@ body {
   margin: 0 auto;
 }
 
+// PODCASTS - SEED DATA
 .podcasts {
   list-style-type: none;
   padding: 0;
@@ -55,6 +101,7 @@ body {
   margin: 0 auto;
 }
 
+// RESTAURANTS -  SEED DATA
 .restaurants {
   list-style-type: none;
   padding: 0;

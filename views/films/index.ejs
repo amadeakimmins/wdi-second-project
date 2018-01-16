@@ -1,20 +1,13 @@
+<h1>Films</h1>
+
 <a href="/films/new">Add New Film</a>
 
-<!-- HTML FROM MOVIE EXAMPLE IN HERE TO SHOW SEARCH BAR -->
 
+<h2>Search for a film</h2>
+<form class="searchFilms">
+  <input type="text" name="q" placeholder="Search Films">
+  <input type="submit" value="Go!">
+</form>
+<div class="film-container">
 
-<ul class="films">
-  <% films.forEach((film) => { %>
-    <li>
-    <img class="film-image" src="<%= film.image %>" alt="<%= film.title %>">
-    <a href="/films/<%= film.id %>"><h4><%= film.title %></h4></a>
-    <h4>Year: <%= film.year %></h4>
-    <h4>Average Rating: <%= film.averageRating %></h4>
-    <h4>director: <%= film.director %></h4>
-    </li>
-    <form method="POST" action="/wishlists/films">
-      <input type="hidden" value="<%= film.id %>" name="id">
-      <button>Add to Wishlist</button>
-    </form>
-    <% }) %>
-  </ul>
+</div>

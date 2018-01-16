@@ -20,7 +20,7 @@ function wishlistsShow(req, res, next) {
     .populate(req.params.category)
     .exec()
     .then(user => {
-      if(!user) return res.status(404).send('Not Found');
+      if(!user) return res.notFound();
       return res.render(`wishlists/${req.params.category}`, { user });
     })
     .catch(next);
@@ -28,6 +28,10 @@ function wishlistsShow(req, res, next) {
 
 // adding item to the chosen wishlist
 function wishlistsCreate(req, res, next) {
+
+
+  // console.log(JSON.parse(req.body.film));
+
   User
     .findById(req.user.id)
     .exec()
