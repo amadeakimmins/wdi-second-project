@@ -1,30 +1,37 @@
-<%# Make the photos below a carousel of images of example movies/tv shows/ restaurants etc %>
+<%# Add more photos %>
 
 <main class="container">
   <div class="row">
     <section class= "col-lg-8 col-sm-12">
-      <div class="row">
-        <div class="col-lg-4 col-sm-6 col-12">
-          <img src="images/poster1.jpg" alt="Poster 1" class="img-fluid" alt="Responsive image" class="img-thumbnail">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="assets/images/Clos-maggiore.jpg" alt="First slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="assets/images/dunkirk.jpg" alt="Second slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="assets/images/shantaram.jpg" alt="Third slide">
+          </div>
         </div>
-        <div class="col-lg-4 col-sm-6 col-12">
-          <img src="images/poster7.jpg" alt="Poster 2" class="img-fluid" alt="Responsive image" class="img-thumbnail">
-        </div>
-        <div class="col-lg-4 col-sm-6 col-12">
-          <img src="images/poster3.jpg" alt="Poster 3" class="img-fluid" alt="Responsive image" class="img-thumbnail">
-        </div>
-        <div class="col-lg-4 col-sm-6 col-12">
-          <img src="images/poster4.jpg" alt="Poster 4" class="img-fluid" alt="Responsive image" class="img-thumbnail">
-        </div>
-        <div class="col-lg-4 col-sm-6 col-12">
-          <img src="images/poster5.jpg" alt="Poster 5" class="img-fluid" alt="Responsive image" class="img-thumbnail">
-        </div>
-        <div class="col-lg-4 col-sm-6 col-12">
-          <img src="images/poster6.jpg" alt="Poster 6" class="img-fluid" alt="Responsive image" class="img-thumbnail">
-        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
     </section>
     <aside class= "col-lg-4 col-sm-12">
+
       <% if(locals.message) { %>
         <div class="alert alert-primary" role="alert">
           <%= message %>
