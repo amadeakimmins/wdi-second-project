@@ -18,3 +18,18 @@
   <div class="series-container">
   </div>
 </div>
+
+<ul>
+  <% tvSeriess.forEach((tvSeries) => { %>
+    <li>
+    <img src="<%= tvSeries.imageSRC %>" alt="<%= tvSeries.name %>">
+    <a href="/tvSeriess/<%= tvSeries.id %>"><h4><%= tvSeries.name %></h4></a>
+    <h4>Year: <%= tvSeries.year %></h4>
+    <h4>Average Rating: <%= tvSeries.averageRating %></h4>
+    </li>
+    <form method="POST" action="/wishlists/tvSeriess/<%= tvSeries.id %>">
+      <input type="hidden" name="_method" value="DELETE">
+      <button>Remove</button>
+    </form>
+  <% }) %>
+</ul>

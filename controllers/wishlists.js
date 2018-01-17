@@ -44,6 +44,32 @@ function wishlistsCreate(req, res, next) {
 }
 
 // create a delete/ done resource which removes from wishlist
+// function wishlistsDelete(req, res, next) {
+//
+//   User
+//     .findById(req.user.id)
+//     .exec()
+//     .then(user => {
+//       if(!user) return res.notFound();
+//
+//       // const category = user[req.params.category];
+//
+//       // category.find(obj => obj.name === req.params.id);
+//       // const index = category.indexOf(req.params.itemId);
+//       // category.splice(index, 1);
+//
+//
+//       // look up array method filter
+//       // user[req.params.category] = user[req.params.category].filter(obj => obj.id !== req.params.id);
+//
+//       return user.save();
+//     })
+//     .then(() => {
+//       res.redirect(`/wishlists/${req.params.category}`);
+//     })
+//     .catch(next);
+// }
+
 function wishlistsDelete(req, res, next) {
 
   User
@@ -52,15 +78,12 @@ function wishlistsDelete(req, res, next) {
     .then(user => {
       if(!user) return res.notFound();
 
-      // const category = user[req.params.category];
+      const category = user[req.params.category];
 
-      // category.find(obj => obj.name === req.params.id);
-      // const index = category.indexOf(req.params.itemId);
-      // category.splice(index, 1);
+      const index = category.indexOf(req.params.itemId);
 
-
-      // look up array method filter
-      // user[req.params.category] = user[req.params.category].filter(obj => obj.id !== req.params.id);
+      console.log(index);
+      category.splice(index, 1);
 
       return user.save();
     })
@@ -69,7 +92,6 @@ function wishlistsDelete(req, res, next) {
     })
     .catch(next);
 }
-
 
 module.exports = {
   index: wishlistsIndex,

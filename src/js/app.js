@@ -11,24 +11,19 @@ $(() => {
 // --- FILM API SEARCH --- //
 function addFilm(film) {
   $('.film-container').append(`
-                            <div class="container">
-                              <div class="row">
                                 <div class="col-3">
                                   <h1>${film.title}</h1>
                                   <img class="api-image" src="https://image.tmdb.org/t/p/w500${film.poster_path}">
-                                  <h1>Release Date: ${film.release_date}</h1>
                                   <h1>Rating: ${film.vote_average}</h1>
                                   <form method="POST" action="/films">
-                                    <input type="text" name="title" value="${film.title}">
-                                    <input type="text" name="image" value="${film.poster_path}">
-                                    <input type="text" name="synopsis" value="${film.overview}">
-                                    <input type="text" name="averageRating" value="${film.vote_average}">
-                                    <input type="text" name="year" value="${film.release_date.split('-')[0]}">
+                                    <input type="hidden" name="title" value="${film.title}">
+                                    <input type="hidden" name="image" value="${film.poster_path}">
+                                    <input type="hidden" name="synopsis" value="${film.overview}">
+                                    <input type="hidden" name="averageRating" value="${film.vote_average}">
+                                    <input type="hidden" name="year" value="${film.release_date.split('-')[0]}">
                                       <input class="search-button" type="submit" value="Add to watchlist">
                                   </form>
                                 </div>
-                              </div>
-                            </div>
                             `);
 
 }
@@ -65,9 +60,9 @@ function addTvSeries(tvSeries) {
                                   <img class="api-image" src="https://image.tmdb.org/t/p/w500${tvSeries.poster_path}">
                                   <h1>Rating: ${tvSeries.vote_average}</h1>
                                   <form method="POST" action="/tvSeriess">
-                                    <input type="text" name="name" value="${tvSeries.name}">
-                                    <input type="text" name="image" value="${tvSeries.poster_path}">
-                                    <input type="text" name="averageRating" value="${tvSeries.vote_average}">
+                                    <input type="hidden" name="name" value="${tvSeries.name}">
+                                    <input type="hidden" name="image" value="${tvSeries.poster_path}">
+                                    <input type="hidden" name="averageRating" value="${tvSeries.vote_average}">
                                   <input class="search-button" type="submit" value="Add to watchlist">
                                   </form>
                                 </div>
