@@ -41,10 +41,19 @@ router.route('/books/:id/edit')
 
 // TV ROUTES
 router.route('/tvSeriess')
-  .get(tvSeriess.index);
+  .get(tvSeriess.index)
+  .post(secureRoute, tvSeriess.create);
 
 router.route('/tvSeriess/new')
   .get(secureRoute, tvSeriess.new);
+
+router.route('/tvSeriess/:id')
+  .get(tvSeriess.show)
+  .put(secureRoute, tvSeriess.update)
+  .delete(secureRoute, tvSeriess.delete);
+
+router.route('/tvSeriess/:id/edit')
+  .get(secureRoute, tvSeriess.edit);
 
 //  FILM ROUTES
 router.route('/films')

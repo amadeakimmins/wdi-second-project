@@ -8,12 +8,6 @@ $(() => {
   }
 });
 
-// title
-// image: poster_path
-// synopsis: overview
-// averageRating: vote_average
-// year: release_date
-
 // --- FILM API SEARCH --- //
 function addFilm(film) {
   $('.film-container').append(`
@@ -60,8 +54,6 @@ function emptyFilms() {
   $('.inputFilm, .film-container').empty();
 }
 
-// create hidden input fields for each field that you wanna send to the server (match up the name of the input with the model)
-// in the controller for tvSeries create, find the user and push the tv series in
 
 // --- TV SERIES API SEARCH --- //
 function addTvSeries(tvSeries) {

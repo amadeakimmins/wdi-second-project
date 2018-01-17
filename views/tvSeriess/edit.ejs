@@ -1,0 +1,25 @@
+<h3>New Wishlist Tv Series</h3>
+<form method="POST" action="/tvSeriess/<%= tvSeries.id %>">
+  <input type="hidden" name="_method" value="PUT">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" value="<%=tvSeries.name%>" name="name" required>
+  </div>
+  <div class="form-group">
+    <label for="year">Year</label>
+    <input type="text" class="form-control" id="year" value="<%=tvSeries.year%>" name="year" required>
+  </div>
+  <div class="form-group">
+    <label for="averageRating">Average Rating</label>
+    <input type="text" class="form-control" id="averageRating" value="<%=tvSeries.averageRating%>" name="averageRating">
+  </div>
+  <div class="form-group">
+    <label for="synopsis">Synopsis</label>
+    <input type="text" class="form-control" id="synopsis" value="<%=tvSeries.synopsis%>" name="synopsis">
+  </div>
+  <div class="form-group">
+    <label for="image">Image</label>
+    <input type="text" class="form-control" id="image" value="<%=tvSeries.image%>" name="image">
+  </div>
+  <button type="submit" class="submit-btn btn" style="background-color: #eec3c4">Submit</button>
+</form>

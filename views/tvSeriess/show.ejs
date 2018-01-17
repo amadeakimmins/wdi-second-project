@@ -1,0 +1,14 @@
+<h1><%= tvSeries.name %></h1>
+<img src="<%= tvSeries.image %>" alt="tvSeries.title">
+<h4>Year: <%= tvSeries.year %></h4>
+<h4>Average Rating: <%= tvSeries.averageRating %></h4>
+<h4>Synopsis: <%= tvSeries.synopsis %></h4>
+
+<% if (locals.isLoggedIn) { %>
+  <a href="/tvSeriess/<%= tvSeries.id %>/edit" class="btn edit-btn" style="background-color: #eec3c4">Edit</a>
+
+  <form method="POST" action="/tvSeriess/<%= tvSeries.id %>" class="delete-btn">
+    <input type="hidden" name="_method" value="DELETE">
+    <button class="btn" style="background-color: #eec3c4">Delete</button>
+  </form>
+<% } %>
