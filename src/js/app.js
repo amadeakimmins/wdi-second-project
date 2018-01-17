@@ -72,8 +72,10 @@ function addTvSeries(tvSeries) {
                                   <h1>${tvSeries.name}</h1>
                                   <img class="api-image" src="https://image.tmdb.org/t/p/w500${tvSeries.poster_path}">
                                   <h1>Rating: ${tvSeries.vote_average}</h1>
-                                  <form method="POST" action="/wishlists/tvSeriess">
-                                  <textarea style="display:none;" name="tvSeriess">${JSON.stringify(tvSeries)}</textarea>
+                                  <form method="POST" action="/tvSeriess">
+                                    <input type="text" name="name" value="${tvSeries.name}">
+                                    <input type="text" name="image" value="${tvSeries.poster_path}">
+                                    <input type="text" name="averageRating" value="${tvSeries.vote_average}">
                                   <input class="search-button" type="submit" value="Add to watchlist">
                                   </form>
                                 </div>
