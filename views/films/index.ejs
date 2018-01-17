@@ -1,13 +1,14 @@
-<h1>Films</h1>
+<h1 class="resource-title">Films</h1>
 
-<a href="/films/new">Add New Film</a>
+<%# <a href="/films/new">Add New Film</a> %>
 
+<%# <h2>Search for a film</h2> %>
 
-<h2>Search for a film</h2>
-<form class="searchFilms">
-  <input type="text" name="q" placeholder="Search Films">
-  <input type="submit" value="Go!">
-</form>
-<div class="film-container">
-
+<div class="container search-form">
+  <form class="searchFilms">
+    <input class="search-input-field" type="text" name="q" placeholder="Search Films" autocomplete="off">
+    <input class="search-button" type="submit" value="Go!">
+  </form>
+  <div class="film-container">
+  </div>
 </div>

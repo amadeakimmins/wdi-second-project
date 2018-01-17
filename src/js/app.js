@@ -14,16 +14,20 @@ $(() => {
   // second adding into HTML
   function addFilm(film) {
     $('.film-container').append(`
-                            <div>
-                              <h1>${film.title}</h1>
-                              <img src="https://image.tmdb.org/t/p/w500${film.poster_path}">
-                              <h1>Release Date: ${film.release_date}</h1>
-                              <h1>Rating: ${film.vote_average}</h1>
-                              <h1>Popularity: ${film.popularity}</h1>
-                              <form method="POST" action="/wishlists/films">
-                                <input type="hidden" name="film" value="${JSON.stringify(film)}">
-                                <input type="submit" value="Add to watchlist">
-                              </form>
+                            <div class="container">
+                              <div class="row">
+                                <div class="col-4">
+                                  <h1>${film.title}</h1>
+                                  <img src="https://image.tmdb.org/t/p/w500${film.poster_path}">
+                                  <h1>Release Date: ${film.release_date}</h1>
+                                  <h1>Rating: ${film.vote_average}</h1>
+                                  <h1>Popularity: ${film.popularity}</h1>
+                                  <form method="POST" action="/wishlists/films">
+                                    <input type="hidden" name="film" value="${JSON.stringify(film)}">
+                                    <input class="search-button" type="submit" value="Add to watchlist">
+                                  </form>
+                                </div>
+                              </div>
                             </div>
                           `);
   }
