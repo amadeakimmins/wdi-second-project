@@ -1,6 +1,7 @@
 // import scss partials here
-body {
+html, body {
   font-family: 'Montserrat', sans-serif;
+  margin: 0;
 }
 
 // header
@@ -8,11 +9,6 @@ body {
   font-size: 20px;
   margin-bottom: 20px;
 }
-
-// .jumbotron {
-//     padding: 5px 40px;
-//     background-color: #eec3c4;
-//   }
 
 .corner-logo {
   width: 60px;
@@ -114,6 +110,25 @@ a.return-button {
   padding: 10px 20px;
 }
 
+// films index
+.jumbotron {
+    padding: 5px 40px;
+    background-color: #eec3c4;
+    margin-bottom:10px;
+  }
+  h1 {
+    font-size: 30px;
+    text-align: center;
+    padding: 10px 5px;
+  }
+
+// API
+.api-image {
+  border-radius: 5px;
+  margin: 5px;
+  max-width: 200px;
+  vertical-align: middle;
+}
 // books index
 .add-wishlist-button {
   color: black;

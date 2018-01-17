@@ -28,9 +28,7 @@ function wishlistsShow(req, res, next) {
 
 // adding item to the chosen wishlist
 function wishlistsCreate(req, res, next) {
-
-
-  // console.log(JSON.parse(req.body.film));
+  const data = JSON.parse(req.body[req.params.category]);
 
   User
     .findById(req.user.id)
@@ -38,7 +36,7 @@ function wishlistsCreate(req, res, next) {
     .then(user => {
       if(!user) return res.notFound();
 
-      user[req.params.category].push(req.body.id);
+      user[req.params.category].push(data);
       return user.save();
     })
     .then(() => {
@@ -57,12 +55,15 @@ function wishlistsDelete(req, res, next) {
     .then(user => {
       if(!user) return res.notFound();
 
-      const category = user[req.params.category];
+      // const category = user[req.params.category];
 
-      const index = category.indexOf(req.params.itemId);
+      // category.find(obj => obj.name === req.params.id);
+      // const index = category.indexOf(req.params.itemId);
+      // category.splice(index, 1);
 
-      console.log(index);
-      category.splice(index, 1);
+
+      // look up array method filter
+      // user[req.params.category] = user[req.params.category].filter(obj => obj.id !== req.params.id);
 
       return user.save();
     })

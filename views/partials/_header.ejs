@@ -9,18 +9,18 @@
       <li class="nav-item active">
         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
       </li>
+      <li class="nav-item active dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"aria-expanded="false">
+        Search...
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="/books">Books</a>
+          <a class="dropdown-item" href="/films">Films</a>
+          <a class="dropdown-item" href="/restaurants">Restaurants</a>
+          <a class="dropdown-item" href="/podcasts">Podcasts</a>
+        </div>
+      </li>
       <% if (locals.isLoggedIn) { %>
-        <li class="nav-item active dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Search...
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="/books">Books</a>
-            <a class="dropdown-item" href="/films">Films</a>
-            <a class="dropdown-item" href="/restaurants">Restaurants</a>
-            <a class="dropdown-item" href="/podcasts">Podcasts</a>
-          </div>
-        </li>
         <li class="nav-item active dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           My Wishlists
@@ -48,9 +48,4 @@
     </ul>
   </div>
 </nav>
-<%# <div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <img class="logo" src="/assets/images/deseo-logo.png" alt="Deseo Logo">
-  </div>
-</div> %>
 </header>

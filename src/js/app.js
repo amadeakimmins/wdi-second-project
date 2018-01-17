@@ -13,23 +13,31 @@ $(() => {
 
   // second adding into HTML
   function addFilm(film) {
+    // let counter = 0;
+    // const filmData = JSON.stringify(film);
+    //
+    // console.log(filmData);
+
+
     $('.film-container').append(`
                             <div class="container">
                               <div class="row">
                                 <div class="col-4">
                                   <h1>${film.title}</h1>
-                                  <img src="https://image.tmdb.org/t/p/w500${film.poster_path}">
+                                  <img class="api-image" src="https://image.tmdb.org/t/p/w500${film.poster_path}">
                                   <h1>Release Date: ${film.release_date}</h1>
                                   <h1>Rating: ${film.vote_average}</h1>
-                                  <h1>Popularity: ${film.popularity}</h1>
                                   <form method="POST" action="/wishlists/films">
-                                    <input type="hidden" name="film" value="${JSON.stringify(film)}">
+                                    <textarea style="display:none;" name="films">${JSON.stringify(film)}</textarea>
                                     <input class="search-button" type="submit" value="Add to watchlist">
                                   </form>
                                 </div>
                               </div>
                             </div>
                           `);
+
+    // $(`#${counter}`).attr('value', filmData);
+    // counter += 1;
   }
 
   // third to make it dynamic
@@ -53,6 +61,6 @@ $(() => {
   }
 
   function emptyFilms() {
-    $('.inputFilm').empty();
+    $('.inputFilm, .film-container').empty();
   }
 });
