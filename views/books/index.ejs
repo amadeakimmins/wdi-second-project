@@ -2,15 +2,21 @@
 <h1 class="resource-title">Books</h1>
 
 <ul class="books">
-  <% books.forEach((book) => { %>
-    <li>
-    <img class="book-image" src="<%= book.image %>" alt="<%= book.title %>">
-    <a href="/books/<%= book.id %>"><h4><%= book.title %></h4></a>
-    <h4>Author: <%= book.author %></h4>
-    </li>
-    <form method="POST" action="/wishlists/books">
-      <input type="hidden" value="<%= book.id %>" name="id">
-      <button>Add to Wishlist</button>
-    </form>
-    <% }) %>
-  </ul>
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <% books.forEach((book) => { %>
+          <li>
+          <img class="book-image" src="<%= book.image %>" alt="<%= book.title %>">
+          <a href="/books/<%= book.id %>"><h4><%= book.title %></h4></a>
+          <h4>Author: <%= book.author %></h4>
+          </li>
+          <form method="POST" action="/wishlists/books">
+            <input type="hidden" value="<%= book.id %>" name="id">
+            <button class="add-wishlist-button">Add to Wishlist</button>
+          </form>
+          <% }) %>
+      </div>
+    </div>
+  </div>
+</ul>
