@@ -9,12 +9,14 @@ const Book = require('../models/book');
 const Film = require('../models/film');
 const Podcast = require('../models/podcast');
 const Restaurant = require('../models/restaurant');
+const TvSeries = require('../models/tvSeries');
 
 User.collection.drop();
 Book.collection.drop();
 Film.collection.drop();
 Podcast.collection.drop();
 Restaurant.collection.drop();
+TvSeries.collection.drop();
 
 Book
   .create([{
@@ -220,6 +222,17 @@ Book
   })
   .then((podcast) => {
     console.log(`${podcast.length} podcasts created!`);
+
+    return TvSeries.create([{
+      name: 'The Sinner',
+      image: 'http://jessica-biel.com/wp-content/uploads/2017/07/jessica-biel-sinner-book-cover.jpg',
+      year: 2017,
+      averageRating: 8.3,
+      synopsis: 'A young mother tries to find out what\'s causing her to have violent tendencies'
+    }]);
+  })
+  .then((tvSeries) => {
+    console.log(`${tvSeries.length} TV Series created!`);
 
     return Restaurant.create([{
       name: 'Barafina',

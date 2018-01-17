@@ -5,16 +5,16 @@
 
 
 <ul>
-  <% user.podcasts.forEach((podcast) => { %>
+  <% user.tvSeriess.forEach((tvSeries) => { %>
     <li>
-    <img src="<%= podcast.image %>" alt="<%= podcast.title %>">
-    <a href="/podcasts/<%= podcast.id %>"><h4><%= podcast.title %></h4></a>
-    <h4>creator: <%= podcast.creator %></h4>
-    <h4>Link: <%= podcast.link %></h4>
+    <img src="<%= tvSeries.imageSRC %>" alt="<%= tvSeries.name %>">
+    <a href="/tvSeriess/<%= tvSeries.id %>"><h4><%= tvSeries.name %></h4></a>
+    <h4>Year: <%= tvSeries.year %></h4>
+    <h4>Average Rating: <%= tvSeries.averageRating %></h4>
     </li>
-    <form method="POST" action="/wishlists/podcasts/<%= podcast.id %>">
+    <form method="POST" action="/wishlists/tvSeriess/<%= tvSeries.id %>">
       <input type="hidden" name="_method" value="DELETE">
       <button>Remove</button>
     </form>
-    <% }) %>
-  </ul>
+  <% }) %>
+</ul>

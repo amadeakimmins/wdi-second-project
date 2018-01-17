@@ -48,12 +48,12 @@ router.route('/tvSeriess/new')
   .get(secureRoute, tvSeriess.new);
 
 router.route('/tvSeriess/:id')
-  .get(tvSeriess.show)
-  .put(secureRoute, tvSeriess.update)
-  .delete(secureRoute, tvSeriess.delete);
+  .get(tvSeriess.show);
+// .put(secureRoute, tvSeriess.update)
+// .delete(secureRoute, tvSeriess.delete);
 
-router.route('/tvSeriess/:id/edit')
-  .get(secureRoute, tvSeriess.edit);
+// router.route('/tvSeriess/:id/edit')
+// .get(secureRoute, tvSeriess.edit);
 
 //  FILM ROUTES
 router.route('/films')
