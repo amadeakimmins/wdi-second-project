@@ -6,6 +6,7 @@ const restaurants   = require('../controllers/restaurants');
 const registrations = require('../controllers/registrations');
 const sessions      = require('../controllers/sessions');
 const wishlists     = require('../controllers/wishlists');
+const tvSeriess     = require('../controllers/tvSeriess');
 const secureRoute   = require('../lib/secureRoute');
 
 
@@ -54,6 +55,9 @@ router.route('/films/:id')
 router.route('/films/:id/edit')
   .get(secureRoute, films.edit);
 
+// TV SERIES ROUTES
+router.route('/tvSeriess')
+  .get(tvSeriess.index);
 
 //  PODCAST ROUTES
 router.route('/podcasts')

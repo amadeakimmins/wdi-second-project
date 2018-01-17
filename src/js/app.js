@@ -1,25 +1,16 @@
-// client side js here
-console.log('JS loaded');
-
-// The movie db api key - 6d36f11289998f020d28569c11326227
-
-// USE THIS ONE:
-// https://api.themoviedb.org/3/search/movie?api_key=6d36f11289998f020d28569c11326227&query=Jack+Reacher
 
 $(() => {
   if ($('.film-container').length !== 0) {
     $('.searchFilms').on('submit', getFilms);
   }
+  if($('.series-container').length !== 0) {
+    $('.searchTvSeries').on('submit', getTvSeries);
+  }
+});
 
-  // second adding into HTML
-  function addFilm(film) {
-    // let counter = 0;
-    // const filmData = JSON.stringify(film);
-    //
-    // console.log(filmData);
-
-
-    $('.film-container').append(`
+// --- FILM API SEARCH --- //
+function addFilm(film) {
+  $('.film-container').append(`
                             <div class="container">
                               <div class="row">
                                 <div class="col-4">
@@ -28,39 +19,75 @@ $(() => {
                                   <h1>Release Date: ${film.release_date}</h1>
                                   <h1>Rating: ${film.vote_average}</h1>
                                   <form method="POST" action="/wishlists/films">
-                                    <textarea style="display:none;" name="films">${JSON.stringify(film)}</textarea>
-                                    <input class="search-button" type="submit" value="Add to watchlist">
+                                  <textarea style="display:none;" name="films">${JSON.stringify(film)}</textarea>
+                                  <input class="search-button" type="submit" value="Add to watchlist">
                                   </form>
                                 </div>
                               </div>
                             </div>
-                          `);
+    `);
 
-    // $(`#${counter}`).attr('value', filmData);
-    // counter += 1;
+}
+
+function getFilms(e) {
+  e.preventDefault();
+  const searchInput = $('input[name="q"]').val();
+
+  if(!$(this).is('button')) {
+    emptyFilms();
   }
 
-  // third to make it dynamic
-  function getFilms(e) {
-    e.preventDefault();
-    const searchInput = $('input[name="q"]').val();
-
-    // to clear after searching again
-    if(!$(this).is('button')) {
-      emptyFilms();
-    }
-
-    // first
-    $
-      .get(`https://api.themoviedb.org/3/search/movie?api_key=6d36f11289998f020d28569c11326227&query=${searchInput}`)
-      .then(films => {
-        $.each(films.results, (i, film) => {
-          addFilm(film);
-        });
+  $
+    .get(`https://api.themoviedb.org/3/search/movie?api_key=6d36f11289998f020d28569c11326227&query=${searchInput}`)
+    .then(films => {
+      $.each(films.results, (i, film) => {
+        addFilm(film);
       });
+    });
+}
+
+function emptyFilms() {
+  $('.inputFilm, .film-container').empty();
+}
+
+
+// --- TV SERIES API SEARCH --- //
+function addTvSeries(tvSeries) {
+  $('.series-container').append(`
+                            <div class="container">
+                              <div class="row">
+                                <div class="col-4">
+                                  <h1>${tvSeries.name}</h1>
+                                  <img class="api-image" src="https://image.tmdb.org/t/p/w500${tvSeries.poster_path}">
+                                  <h1>Rating: ${tvSeries.vote_average}</h1>
+                                  <form method="POST" action="/wishlists/tvSeriess">
+                                  <textarea style="display:none;" name="tvSeriess">${JSON.stringify(tvSeries)}</textarea>
+                                  <input class="search-button" type="submit" value="Add to watchlist">
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+    `);
+
+}
+
+function getTvSeries(e) {
+  e.preventDefault();
+  const searchInput = $('input[name="q"]').val();
+
+  if(!$(this).is('button')) {
+    emptyTvSeries();
   }
 
-  function emptyFilms() {
-    $('.inputFilm, .film-container').empty();
-  }
-});
+  $
+    .get(`https://api.themoviedb.org/3/search/tv?api_key=6d36f11289998f020d28569c11326227&query=${searchInput}`)
+    .then(tvSeriess => {
+      $.each(tvSeriess.results, (i, tvSeries) => {
+        addTvSeries(tvSeries);
+      });
+    });
+}
+
+function emptyTvSeries() {
+  $('.inputFilm, .series-container').empty();
+}

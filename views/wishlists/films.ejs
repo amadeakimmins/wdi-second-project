@@ -4,12 +4,10 @@
 <ul>
   <% user.films.forEach((film) => { %>
     <li>
-    <img src="<%= film.image %>" alt="<%= film.title %>">
+    <img src="<%= film.poster_path %>" alt="<%= film.title %>">
     <a href="/films/<%= film.id %>"><h4><%= film.title %></h4></a>
     <h4>Year: <%= film.year %></h4>
-    <h4>Average Rating: <%= film.averageRating %></h4>
-    <h4>director: <%= film.director %></h4>
-    <h4>Trailer: <%= film.trailer %></h4>
+    <h4>Average Rating: <%= film.vote_average %></h4>
     </li>
     <form method="POST" action="/wishlists/films/<%= film.id %>">
       <input type="hidden" name="_method" value="DELETE">
