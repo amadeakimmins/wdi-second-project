@@ -8,19 +8,29 @@ $(() => {
   }
 });
 
+// title
+// image: poster_path
+// synopsis: overview
+// averageRating: vote_average
+// year: release_date
+
 // --- FILM API SEARCH --- //
 function addFilm(film) {
   $('.film-container').append(`
                             <div class="container">
                               <div class="row">
-                                <div class="col-4">
+                                <div class="col-3">
                                   <h1>${film.title}</h1>
                                   <img class="api-image" src="https://image.tmdb.org/t/p/w500${film.poster_path}">
                                   <h1>Release Date: ${film.release_date}</h1>
                                   <h1>Rating: ${film.vote_average}</h1>
-                                  <form method="POST" action="/wishlists/films">
-                                  <textarea style="display:none;" name="films">${JSON.stringify(film)}</textarea>
-                                  <input class="search-button" type="submit" value="Add to watchlist">
+                                  <form method="POST" action="/films">
+                                    <input type="text" name="title" value="${film.title}">
+                                    <input type="text" name="image" value="${film.poster_path}">
+                                    <input type="text" name="synopsis" value="${film.overview}">
+                                    <input type="text" name="averageRating" value="${film.vote_average}">
+                                    <input type="text" name="year" value="${film.release_date.split('-')[0]}">
+                                      <input class="search-button" type="submit" value="Add to watchlist">
                                   </form>
                                 </div>
                               </div>
@@ -50,6 +60,8 @@ function emptyFilms() {
   $('.inputFilm, .film-container').empty();
 }
 
+// create hidden input fields for each field that you wanna send to the server (match up the name of the input with the model)
+// in the controller for tvSeries create, find the user and push the tv series in
 
 // --- TV SERIES API SEARCH --- //
 function addTvSeries(tvSeries) {

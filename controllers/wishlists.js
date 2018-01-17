@@ -28,15 +28,13 @@ function wishlistsShow(req, res, next) {
 
 // adding item to the chosen wishlist
 function wishlistsCreate(req, res, next) {
-  const data = JSON.parse(req.body[req.params.category]);
-
   User
     .findById(req.user.id)
     .exec()
     .then(user => {
       if(!user) return res.notFound();
 
-      user[req.params.category].push(data);
+      user[req.params.category].push(req.body.id);
       return user.save();
     })
     .then(() => {
@@ -44,7 +42,6 @@ function wishlistsCreate(req, res, next) {
     })
     .catch(next);
 }
-
 
 // create a delete/ done resource which removes from wishlist
 function wishlistsDelete(req, res, next) {

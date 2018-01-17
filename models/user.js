@@ -6,9 +6,10 @@ const userSchema = new mongoose.Schema({
   email: String,
   password: { type: String, required: true },
   books: [{ type: mongoose.Schema.ObjectId, ref: 'Book'}],
-  films: [{}],
+  films: [{ type: mongoose.Schema.ObjectId, ref: 'Film'}],
   podcasts: [{ type: mongoose.Schema.ObjectId, ref: 'Podcast'}],
-  restaurants: [{ type: mongoose.Schema.ObjectId, ref: 'Restaurant'}]
+  restaurants: [{ type: mongoose.Schema.ObjectId, ref: 'Restaurant'}],
+  tvSeriess: [{ type: mongoose.Schema.ObjectId, ref: 'TvSeries'}]
 });
 
 userSchema

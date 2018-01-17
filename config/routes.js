@@ -18,7 +18,7 @@ router.route('/wishlist')
 
 router.route('/wishlists/:category')
   .get(secureRoute, wishlists.show)
-  .post(secureRoute, wishlists.create);
+  .post(secureRoute, wishlists.create); // adding an id into the user and saving the user
 
 router.route('/wishlists/:category/:itemId')
   .delete(secureRoute, wishlists.delete);

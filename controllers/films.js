@@ -1,4 +1,5 @@
 const Film = require('../models/film');
+const User = require('../models/user');
 
 // INDEX
 function filmsIndex(req, res, next) {
@@ -31,6 +32,15 @@ function filmsCreate(req, res, next) {
   console.log(req.body);
   Film
     .create(req.body)
+    .then((film) => {
+      return User
+        .findById(req.user.id)
+        .exec()
+        .then((user) => {
+          user.films.push(film.id);
+          return user.save();
+        });
+    })
     .then(() => res.redirect('/films'))
     .catch((err) => {
       if(err.name === 'ValidationError') {

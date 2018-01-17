@@ -1,10 +1,12 @@
-<a class="return-button" href="/wishlist">Go back</a>
+<a class="return-button" href="/wishlist">Return</a>
+<a class="return-button" href="/films">Search All Films</a>
+
 <h1 class="resource-title">Films</h1>
 
 <ul>
   <% user.films.forEach((film) => { %>
     <li>
-    <img src="<%= film.poster_path %>" alt="<%= film.title %>">
+    <img src="<%= film.imageSRC %>" alt="<%= film.title %>">
     <a href="/films/<%= film.id %>"><h4><%= film.title %></h4></a>
     <h4>Year: <%= film.year %></h4>
     <h4>Average Rating: <%= film.vote_average %></h4>
