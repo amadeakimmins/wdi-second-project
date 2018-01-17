@@ -25,7 +25,7 @@ function addFilm(film) {
                                 </div>
                               </div>
                             </div>
-    `);
+                            `);
 
 }
 
@@ -67,7 +67,7 @@ function addTvSeries(tvSeries) {
                                 </div>
                               </div>
                             </div>
-    `);
+                            `);
 
 }
 

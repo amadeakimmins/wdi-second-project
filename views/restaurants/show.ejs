@@ -9,11 +9,11 @@
 </p>
 <h4>Cuisine: <%= restaurant.cuisine %></h4>
 
-<%# add code to only allow users who are logged in to see this %>
-<a href="/restaurants/<%= restaurant.id %>/edit" class="btn edit-btn btn-secondary">Edit</a>
+<% if (locals.isLoggedIn) { %>
+  <a href="/restaurants/<%= restaurant.id %>/edit" class="btn edit-btn btn-secondary">Edit</a>
 
-<form method="POST" action="/restaurants/<%= restaurant.id %>" class="delete-btn">
-  <input type="hidden" name="_method" value="DELETE">
-  <button class="btn" style="background-color: #eec3c4">Delete</button>
-</form>
-<%# close it off here %>
+  <form method="POST" action="/restaurants/<%= restaurant.id %>" class="delete-btn">
+    <input type="hidden" name="_method" value="DELETE">
+    <button class="btn" style="background-color: #eec3c4">Delete</button>
+  </form>
+<% } %>
