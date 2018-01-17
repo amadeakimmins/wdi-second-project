@@ -5,7 +5,7 @@
 
 
 <%# add code to only allow users who are logged in to see this %>
-<a href="/books/<%= book.id %>/edit" class="btn edit-btn btn-primary">Edit</a>
+<a href="/books/<%= book.id %>/edit" class="btn edit-btn" style="background-color: #eec3c4">Edit</a>
 
 <form method="POST" action="/books/<%= book.id %>" class="delete-btn">
   <input type="hidden" name="_method" value="DELETE">

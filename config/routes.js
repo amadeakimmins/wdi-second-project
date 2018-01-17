@@ -39,6 +39,13 @@ router.route('/books/:id')
 router.route('/books/:id/edit')
   .get(secureRoute, books.edit);
 
+// TV ROUTES
+router.route('/tvSeriess')
+  .get(tvSeriess.index);
+
+router.route('/tvSeriess/new')
+  .get(secureRoute, tvSeriess.new);
+
 //  FILM ROUTES
 router.route('/films')
   .get(films.index)
@@ -54,10 +61,6 @@ router.route('/films/:id')
 
 router.route('/films/:id/edit')
   .get(secureRoute, films.edit);
-
-// TV SERIES ROUTES
-router.route('/tvSeriess')
-  .get(tvSeriess.index);
 
 //  PODCAST ROUTES
 router.route('/podcasts')

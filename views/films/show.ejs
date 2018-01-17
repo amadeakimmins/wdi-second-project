@@ -7,7 +7,7 @@
 <h4>Trailer: <%= film.trailer %></h4>
 
 <% if (locals.isLoggedIn) { %>
-  <a href="/films/<%= film.id %>/edit" class="btn edit-btn btn-secondary">Edit</a>
+  <a href="/films/<%= film.id %>/edit" class="btn edit-btn" style="background-color: #eec3c4">Edit</a>
 
   <form method="POST" action="/films/<%= film.id %>" class="delete-btn">
     <input type="hidden" name="_method" value="DELETE">

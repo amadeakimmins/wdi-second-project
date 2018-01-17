@@ -1,5 +1,6 @@
 const TvSeries = require('../models/tvSeries');
 
+// INDEX
 function tvSeriessIndex(req, res, next) {
   TvSeries
     .find()
@@ -8,6 +9,12 @@ function tvSeriessIndex(req, res, next) {
     .catch(next);
 }
 
+// NEW
+function tvSeriessNew(req, res) {
+  res.render('tvSeriess/new');
+}
+
 module.exports = {
-  index: tvSeriessIndex
+  index: tvSeriessIndex,
+  new: tvSeriessNew
 };
