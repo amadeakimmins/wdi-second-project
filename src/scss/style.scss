@@ -18,30 +18,42 @@ header, nav {
   }
 }
 
-.logo {
-  width: 60px;
-  height: 60px;
-}
-
 // HOMEPAGE
-.carousel {
-  margin-top: 15px;
-}
-
-.website-name {
-  text-align: center;
-}
-
-.text-about-website {
-  padding: 10px;
-}
-
-.register-homepage-form {
-  padding-left: 60px;
-  margin-top: 150px;
-}
-.register-input-box {
-  margin-bottom: 3px;
+main{
+  section {
+    div {
+      &.carousel {
+        margin-top: 15px;
+      }
+    }
+    div {
+      &.text-about-website {
+        padding: 10px;
+      }
+    }
+    h1 {
+      &.website-name {
+        text-align: center;
+      }
+      img {
+        &.logo {
+          width: 60px;
+          height: 60px;
+        }
+      }
+    }
+  }
+  aside {
+    &.register-homepage-form {
+      padding-left: 60px;
+      margin-top: 150px;
+    }
+    form, div {
+      &.register-input-box {
+        margin-bottom: 3px;
+      }
+    }
+  }
 }
 
 //titles of pages
@@ -73,33 +85,41 @@ header, nav {
   margin: 0 20px;
 }
 
-// wishlist index page carousel
-.wishlists {
-  border: 2px solid #eec3c4;
-  border-radius: 100px;
-  // padding: 80px 20px;
-  margin: 20px;
-  text-align:center;
+// WISHLISTS INDEX
+div{
+  &.wishlist-container {
+    margin: 0 auto;
+    width: 80%;
+  }
+  div {
+    &.wishlists {
+      border: 2px solid #eec3c4;
+      border-radius: 100px;
+      // padding: 80px 20px;
+      margin: 20px;
+      text-align:center;
+    }
+    &.wishlists:hover {
+        background-color:#eec3c4;
+    }
+    a {
+      &.wishlist-links {
+        text-decoration: none;
+      }
+    }
+    h5 {
+      &.wishlist-choices {
+        font-size: 30px;
+        text-decoration: none;
+        color: black;
+      }
+    }
+  }
 }
 
-.wishlist-choices {
-  font-size: 30px;
-  text-decoration: none;
-  color: black;
-}
 
-div.wishlists:hover {
-    background-color:#eec3c4;
-}
 
-a.wishlist-links {
-  text-decoration: none;
-}
 
-.wishlist-container {
-  margin: 0 auto;
-  width: 80%;
-}
 
 a.return-button {
   color: black;
@@ -111,17 +131,19 @@ a.return-button {
 }
 
 // films index
-.jumbotron {
-    padding: 5px 40px;
-    background-color: #fff;
-    border-radius: 15px;
-    margin-bottom:10px;
-  }
-  h1 {
-    font-size: 30px;
-    text-align: center;
-    padding: 10px 5px;
-  }
+nav, div {
+  &.jumbotron {
+      padding: 5px 40px;
+      background-color: #fff;
+      border-radius: 15px;
+      margin-bottom:10px;
+    }
+    h1 {
+      font-size: 30px;
+      text-align: center;
+      padding: 10px 5px;
+    }
+}
 
 // API
 .api-image {
