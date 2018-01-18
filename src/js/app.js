@@ -59,22 +59,23 @@ function emptyFilms() {
 
 // --- TV SERIES API SEARCH --- //
 function addTvSeries(tvSeries) {
-  $('.api-container').append(`
-                              <div class="slick-item-container">
-                                <div class="hovereffect">
-                                  <img class="api-image" src="https://image.tmdb.org/t/p/w500${tvSeries.poster_path}">
-                                    <div class="overlay">
-                                      <form method="POST" action="/tvSeriess">
-                                        <input type="hidden" name="name" value="${tvSeries.name}">
-                                        <input type="hidden" name="image" value="${tvSeries.poster_path}">
-                                        <input type="hidden" name="averageRating" value="${tvSeries.vote_average}">
-                                      <input class="search-button" type="submit" value="Add to wishlist">
-                                      </form>
+  if(tvSeries.poster_path) {
+    $('.api-container').append(`
+                                <div class="slick-item-container">
+                                  <div class="hovereffect">
+                                    <img class="api-image" src="https://image.tmdb.org/t/p/w500${tvSeries.poster_path}">
+                                      <div class="overlay">
+                                        <form method="POST" action="/tvSeriess">
+                                          <input type="hidden" name="name" value="${tvSeries.name}">
+                                          <input type="hidden" name="image" value="${tvSeries.poster_path}">
+                                          <input type="hidden" name="averageRating" value="${tvSeries.vote_average}">
+                                            <button class="add-wishlist-button">Add to wishlist</button>
+                                        </form>
+                                      </div>
                                     </div>
-                                  </div>
-                              </div>
-                            `);
-
+                                </div>
+                              `);
+  }
 }
 
 function getTvSeries(e) {

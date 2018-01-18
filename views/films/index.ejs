@@ -2,7 +2,6 @@
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
       <h1>Add films from the selection below to your Wishlist. If you can't find what you're looking for try the search bar or add one yourself</h1>
-      <a class="return-button" href="/films/new">Add New Film</a>
     </div>
   </div>
 </nav>
@@ -17,21 +16,3 @@
 </div>
 <div class="api-container row">
 </div>
-
-
-  <div class="row">
-    <% films.forEach((film) => { %>
-      <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 data-layout">
-        <div class="hovereffect">
-          <a href="/films/<%= film.id %>"><img class="data-image img-responsive" src="<%= film.imageSRC %>" alt="<%= film.title %>">
-            <div class="overlay">
-            <h4 class="hover-color"><%= film.title %></h4></a>
-              <form method="POST" action="/wishlists/films">
-              <input type="hidden" value="<%= film.id %>" name="id">
-              <button class="add-wishlist-button">Add to Wishlist</button>
-              </form>
-            </div>
-        </div>
-      </div>
-      <% }) %>
-  </div>
