@@ -65,7 +65,7 @@ h1 {
 }
 
 
-// search forms
+// SEARCH FORMS
 div {
   &.search-form {
     margin: 0 auto;
@@ -93,12 +93,6 @@ div {
     }
   }
 }
-
-
-
-
-
-
 
 // WISHLISTS INDEX
 div{
@@ -132,20 +126,19 @@ div{
   }
 }
 
-
-
-
-
-a.return-button {
-  color: black;
-  text-decoration: none;
-  background-color: #eec3c4;
-  border:2px solid #eec3c4;
-  border-radius: 15px;
-  padding: 10px 20px;
+// RETURN BUTTON FOR WISHLIST PAGES
+a {
+  &.return-button {
+    color: black;
+    text-decoration: none;
+    background-color: #eec3c4;
+    border:2px solid #eec3c4;
+    border-radius: 15px;
+    padding: 10px 20px;
+  }
 }
 
-// films index
+// FILM INDEX PAGE
 nav, div {
   &.jumbotron {
       padding: 5px 40px;
@@ -161,57 +154,76 @@ nav, div {
 }
 
 // API
-.api-image {
-  border-radius: 5px;
-  margin: 30px 20px 3px;
-  max-width: 200px;
-  vertical-align: middle;
-}
-// books index
-.add-wishlist-button {
-  color: black;
-  text-decoration: none;
-  background-color: #eec3c4;
-  border:2px solid #eec3c4;
-  border-radius: 15px;
-  padding: 10px 20px;
-  outline: none;
+div {
+  img {
+    &.api-image {
+      border-radius: 5px;
+      margin: 30px 20px 3px;
+      max-width: 200px;
+      vertical-align: middle;
+    }
+  }
 }
 
-
-
-// FILMS/TV/BOOKS - SEED DATA
-.data-layout {
-  list-style-type: none;
-}
-.data-image {
-  width: 200px;
-  height: 300px;
-  padding: 20px 10px;
-}
-
-// TITLES OF RESTAURANTS/BOOKS/PODCASTS
-.data-title {
-  color: black;
-  text-decoration: none;
+// STYLING THE  ADD TO WISHLIST BUTTON
+form {
+  button {
+    &.add-wishlist-button {
+      color: black;
+      text-decoration: none;
+      background-color: #eec3c4;
+      border:2px solid #eec3c4;
+      border-radius: 15px;
+      padding: 10px 20px;
+      outline: none;
+    }
+  }
 }
 
-.data-title:hover {
-  color: black;
-  text-decoration: none;
+// FILMS/TV/BOOKS - SEED DATA STYLING
+div {
+  &.data-layout {
+    list-style-type: none;
+  }
+  img {
+    &.data-image {
+      width: 200px;
+      height: 300px;
+      padding: 20px 10px;
+    }
+  }
 }
 
-// PODCASTS - SEED DATA
-.podcast-image {
-  width: 250px;
-  height: 250px;
-  padding: 20px 10px;;
+// TITLES OF EACH RESTAURANT/BOOK/PODCAST ITEM
+div {
+  a {
+    &.data-title {
+      color: black;
+      text-decoration: none;
+    }
+  }
 }
 
-// RESTAURANTS -  SEED DATA
 
-.restaurant-image {
-  width: 300px;
-  height: 200px;
-  padding: 20px 10px;
+// PODCAST SEED IMAGE
+div {
+  img {
+    &.podcast-image {
+      width: 250px;
+      height: 250px;
+      padding: 20px 10px;;
+    }
+  }
+}
+
+
+// RESTAURANTS SEED IMAGE
+div {
+  img {
+    &.restaurant-image {
+      width: 300px;
+      height: 200px;
+      padding: 20px 10px;
+    }
+  }
 }
