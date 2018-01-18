@@ -161,10 +161,10 @@ a.return-button {
 }
 
 // FILMS - SEED DATA
-.films {
+.data-layout {
   list-style-type: none;
 }
-.film-image {
+.data-image {
   width: 200px;
   height: 300px;
   padding: 20px 10px;
@@ -191,17 +191,9 @@ a.return-button {
 // RESTAURANTS -  SEED DATA
 .restaurants {
   list-style-type: none;
-  padding: 0;
-  margin: 0 40px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
 }
 .restaurant-image {
-  width: 350px;
-  height: 450px;
-  max-width: 100%;
+  width: 300px;
+  height: 200px;
   padding: 20px 10px;
-  display: block;
-  margin: 0 auto;
 }

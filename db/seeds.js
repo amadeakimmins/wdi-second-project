@@ -280,7 +280,7 @@ return Book
       }
     },{
       name: 'Chicama',
-      image: 'https://www.google.co.uk/search?q=chicama+restaurant&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjixabKvdXYAhVhFMAKHU2NCNQQ_AUICygC&biw=1440&bih=788#imgrc=4awyOQkufUmm8M:',
+      image: 'https://theupcoming-flmedialtd.netdna-ssl.com/wp-content/uploads/2016/11/Chicama-Bar-Dining-1600x1066-1000x600.jpg',
       cuisine: 'Peruvian',
       address: {
         line1: '383 King\'s Road',

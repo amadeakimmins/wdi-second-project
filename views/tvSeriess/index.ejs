@@ -19,17 +19,17 @@
   </div>
 </div>
 
-<ul>
-  <% tvSeriess.forEach((tvSeries) => { %>
-    <li>
-    <img src="<%= tvSeries.imageSRC %>" alt="<%= tvSeries.name %>">
-    <a href="/tvSeriess/<%= tvSeries.id %>"><h4><%= tvSeries.name %></h4></a>
-    <h4>Year: <%= tvSeries.year %></h4>
-    <h4>Average Rating: <%= tvSeries.averageRating %></h4>
-    </li>
-    <form method="POST" action="/wishlists/tvSeriess">
-      <input type="hidden" value="<%= tvSeries.id %>" name="id">
-      <button class="add-wishlist-button">Add to Wishlist</button>
-    </form>
-  <% }) %>
-</ul>
+<div class="container">
+  <div class="row">
+    <% tvSeriess.forEach((tvSeries) => { %>
+      <div class="col-md-3 data-layout">
+        <img class="data-image" src="<%= tvSeries.imageSRC %>" alt="<%= tvSeries.name %>">
+
+        <form method="POST" action="/wishlists/tvSeriess">
+          <input type="hidden" value="<%= tvSeries.id %>" name="id">
+          <button class="add-wishlist-button">Add to Wishlist</button>
+        </form>
+      </div>
+    <% }) %>
+  </div>
+</div>
