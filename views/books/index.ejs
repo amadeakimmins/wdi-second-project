@@ -7,8 +7,9 @@
         <% books.forEach((book) => { %>
           <div class="col-lg-3 col-md-4 col-sm-6 col-12 data-layout">
             <div class="hovereffect">
-            <a href="/books/<%= book.id %>"><img class="data-image" src="<%= book.image %>" alt="<%= book.title %>"></a>
+            <a href="/books/<%= book.id %>"><img class="data-image" src="<%= book.image %>" alt="<%= book.title %>">
               <div class="overlay">
+                <h4 class="hover-color"><%= book.title %></h4></a>
                 <form method="POST" action="/wishlists/books">
                   <input type="hidden" value="<%= book.id %>" name="id">
                   <button class="add-wishlist-button">Add to Wishlist</button>

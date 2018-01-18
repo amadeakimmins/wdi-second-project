@@ -11,9 +11,9 @@
 <div class="container search-form">
   <form class="searchTvSeries">
     <input class="search-input-field" type="text" name="q" placeholder="Search TV Series" autocomplete="off">
-    <input class="search-button" type="submit" value="Go!">
+    <button class="add-wishlist-button">Go!</button>
   </form>
-  <div class="api-container row">
+  <div class="api-container container">
   </div>
 </div>
 
@@ -22,8 +22,9 @@
     <% tvSeriess.forEach((tvSeries) => { %>
       <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 data-layout">
         <div class="hovereffect">
-          <a href="/tvSeriess/<%= tvSeries.id %>"><img class="data-image" src="<%= tvSeries.imageSRC %>" alt="<%= tvSeries.name %>"></a>
+          <a href="/tvSeriess/<%= tvSeries.id %>"><img class="data-image" src="<%= tvSeries.imageSRC %>" alt="<%= tvSeries.name %>">
             <div class="overlay">
+              <h4 class="hover-color"><%= tvSeries.name %></h4></a>
               <form method="POST" action="/wishlists/tvSeriess">
                 <input type="hidden" value="<%= tvSeries.id %>" name="id">
                 <button class="add-wishlist-button">Add to Wishlist</button>

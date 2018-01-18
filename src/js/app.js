@@ -10,20 +10,13 @@ $(() => {
 
 // --- FILM API SEARCH --- //
 function addFilm(film) {
-  $('.api-container').append(`
-                                <div class="col-lg-3 col-md-4 col-sm-6 col-12 data-layout">
-                                  <img class="api-image" src="https://image.tmdb.org/t/p/w500${film.poster_path}">
-                                  <form method="POST" action="/films">
-                                    <input type="hidden" name="title" value="${film.title}">
-                                    <input type="hidden" name="image" value="${film.poster_path}">
-                                    <input type="hidden" name="synopsis" value="${film.overview}">
-                                    <input type="hidden" name="averageRating" value="${film.vote_average}">
-                                    <input type="hidden" name="year" value="${film.release_date.split('-')[0]}">
-                                      <input class="search-button" type="submit" value="Add to watchlist">
-                                  </form>
-                                </div>
-                            `);
-
+  if(film.poster_path) {
+    $('.api-container').append(`
+      <div class="slick-item-container">
+        <img class="api-image" src="https://image.tmdb.org/t/p/w500${film.poster_path}">
+      </div>
+  `);
+  }
 }
 
 function getFilms(e) {
@@ -40,6 +33,12 @@ function getFilms(e) {
       $.each(films.results, (i, film) => {
         addFilm(film);
       });
+
+      $('.api-container').slick({
+        infinite: false,
+        slidesToShow: 4,
+        slidesToScroll: 4
+      });
     });
 }
 
@@ -52,13 +51,17 @@ function emptyFilms() {
 function addTvSeries(tvSeries) {
   $('.api-container').append(`
                               <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                <img class="api-image" src="https://image.tmdb.org/t/p/w500${tvSeries.poster_path}">
-                                <form method="POST" action="/tvSeriess">
-                                  <input type="hidden" name="name" value="${tvSeries.name}">
-                                  <input type="hidden" name="image" value="${tvSeries.poster_path}">
-                                  <input type="hidden" name="averageRating" value="${tvSeries.vote_average}">
-                                <input class="search-button" type="submit" value="Add to watchlist">
-                                </form>
+                                <div class="hovereffect">
+                                  <img class="api-image" src="https://image.tmdb.org/t/p/w500${tvSeries.poster_path}">
+                                    <div class="overlay">
+                                      <form method="POST" action="/tvSeriess">
+                                        <input type="hidden" name="name" value="${tvSeries.name}">
+                                        <input type="hidden" name="image" value="${tvSeries.poster_path}">
+                                        <input type="hidden" name="averageRating" value="${tvSeries.vote_average}">
+                                      <input class="search-button" type="submit" value="Add to watchlist">
+                                      </form>
+                                    </div>
+                                  </div>
                               </div>
                             `);
 

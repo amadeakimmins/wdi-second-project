@@ -12,7 +12,7 @@
 <div class="search-form">
   <form class="searchFilms">
     <input class="search-input-field" type="text" name="q" placeholder="Search Films" autocomplete="off">
-    <input class="search-button" type="submit" value="Go!">
+    <button class="add-wishlist-button"> Go</button>
   </form>
 </div>
 <div class="api-container row">
@@ -23,8 +23,9 @@
     <% films.forEach((film) => { %>
       <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 data-layout">
         <div class="hovereffect">
-          <a href="/films/<%= film.id %>"><img class="data-image img-responsive" src="<%= film.imageSRC %>" alt="<%= film.title %>"></a>
+          <a href="/films/<%= film.id %>"><img class="data-image img-responsive" src="<%= film.imageSRC %>" alt="<%= film.title %>">
             <div class="overlay">
+            <h4 class="hover-color"><%= film.title %></h4></a>
               <form method="POST" action="/wishlists/films">
               <input type="hidden" value="<%= film.id %>" name="id">
               <button class="add-wishlist-button">Add to Wishlist</button>

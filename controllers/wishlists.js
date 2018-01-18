@@ -34,7 +34,9 @@ function wishlistsCreate(req, res, next) {
     .then(user => {
       if(!user) return res.notFound();
 
-      user[req.params.category].push(req.body.id);
+      if (user[req.params.category].indexOf(req.body.id) === -1) {
+        user[req.params.category].push(req.body.id);
+      }
       return user.save();
     })
     .then(() => {
