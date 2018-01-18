@@ -1,22 +1,19 @@
 <a class="return-button" href="/podcasts/new">Add New Podcast</a>
 <h1 class="resource-title">Podcasts</h1>
 
-<ul class="podcasts">
+
   <div class="container">
     <div class="row">
-      <div class="col-6">
         <% podcasts.forEach((podcast) => { %>
-          <li>
-          <img class="podcast-image" src="<%= podcast.image %>" alt="<%= podcast.title %>">
-          <a href="/podcasts/<%= podcast.id %>"><h4><%= podcast.title %></h4></a>
-          <h4>creator: <%= podcast.creator %></h4>
-          </li>
-          <form method="POST" action="/wishlists/podcasts">
-            <input type="hidden" value="<%= podcast.id %>" name="id">
-            <button class="add-wishlist-button">Add to Wishlist</button>
-          </form>
-        <% }) %>
-    </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 col-12 data-layout">
+            <img class="podcast-image" src="<%= podcast.image %>" alt="<%= podcast.title %>">
+            <a class="data-title" href="/podcasts/<%= podcast.id %>"><h4><%= podcast.title %></h4></a>
+
+            <form method="POST" action="/wishlists/podcasts">
+              <input type="hidden" value="<%= podcast.id %>" name="id">
+              <button class="add-wishlist-button">Add to Wishlist</button>
+            </form>
+        </div>
+      <% }) %>
   </div>
 </div>
-  </ul>
