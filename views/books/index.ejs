@@ -1,14 +1,13 @@
-<a class="return-button" href="/books/new">Add New Book</a>
 <h1 class="resource-title">Books</h1>
 
+<a class="return-button" href="/books/new">Add New Book</a>
 
   <div class="container">
     <div class="row">
         <% books.forEach((book) => { %>
           <div class="col-lg-3 col-md-4 col-sm-6 col-12 data-layout">
 
-            <img class="data-image" src="<%= book.image %>" alt="<%= book.title %>">
-            <a class="data-title" href="/books/<%= book.id %>"><h4><%= book.title %></h4></a>
+            <a href="/books/<%= book.id %>"><img class="data-image" src="<%= book.image %>" alt="<%= book.title %>"></a>
 
             <form method="POST" action="/wishlists/books">
               <input type="hidden" value="<%= book.id %>" name="id">

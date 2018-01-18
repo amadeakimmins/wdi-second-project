@@ -1,15 +1,14 @@
 <nav>
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
-      <h1>Add films from the selection below to your Watchlist. If you can't find what you're looking for try the search bar!</h1>
+      <h1>Add films from the selection below to your Wishlist. If you can't find what you're looking for try the search bar or add one yourself</h1>
+      <a class="return-button" href="/films/new">Add New Film</a>
     </div>
   </div>
 </nav>
 
-<a class="return-button" href="/films/new">Add New Film</a>
-
-
 <h1 class="resource-title">Films</h1>
+
 <div class="container search-form">
   <form class="searchFilms">
     <input class="search-input-field" type="text" name="q" placeholder="Search Films" autocomplete="off">
@@ -19,14 +18,11 @@
   </div>
 </div>
 
-<h1>Existing Films</h1>
-
 <div class="container">
   <div class="row">
     <% films.forEach((film) => { %>
       <div class="col-lg-3 col-md-4 col-sm-6 col-12 data-layout">
-        <img class="data-image" src="<%= film.image %>" alt="<%= film.title %>">
-        <a class="data-title" href="/films/<%= film.id %>"><h4><%= film.title %></h4></a>
+        <a href="/films/<%= film.id %>"><img class="data-image" src="<%= film.image %>" alt="<%= film.title %>"></a>
 
         <form method="POST" action="/wishlists/films">
         <input type="hidden" value="<%= film.id %>" name="id">

@@ -1,13 +1,11 @@
 <nav>
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
-      <h1>SEARCH FOR TV SERIES BELOW AND ADD THEM TO YOUR WATCHLIST</h1>
+      <h1>Add TV Series from the selection below to your Wishlist. If you can't find what you're looking for try the search bar or add one yourself</h1>
+      <a class="return-button" href="/tvSeriess/new">Add New TV Series</a>
     </div>
   </div>
 </nav>
-
-<a class="return-button" href="/tvSeriess/new">Add New TV Series</a>
-
 
 <h1 class="resource-title">TV Series</h1>
 <div class="container search-form">
@@ -23,8 +21,7 @@
   <div class="row">
     <% tvSeriess.forEach((tvSeries) => { %>
       <div class="col-md-3 data-layout">
-        <img class="data-image" src="<%= tvSeries.imageSRC %>" alt="<%= tvSeries.name %>">
-        <a class="data-title" href="/tvSeriess/<%= tvSeries.id %>"><h4><%= tvSeries.name %></h4></a>
+        <a href="/tvSeriess/<%= tvSeries.id %>"><img class="data-image" src="<%= tvSeries.imageSRC %>" alt="<%= tvSeries.name %>"></a>
 
         <form method="POST" action="/wishlists/tvSeriess">
           <input type="hidden" value="<%= tvSeries.id %>" name="id">

@@ -1,13 +1,14 @@
-<a class="return-button" href="/restaurants/new">Add New Restaurant</a>
 <h1 class="resource-title">Restaurants</h1>
+<a class="return-button" href="/restaurants/new">Add New Restaurant</a>
 
 
 <div class="container">
   <div class="row">
     <% restaurants.forEach((restaurant) => { %>
       <div class="col-lg-4 col-md-6 col-sm-12 data-layout">
-      <img class="restaurant-image" src="<%= restaurant.image %>" alt="<%= restaurant.name %>">
-      <a class="data-title" href="/restaurants/<%= restaurant.id %>"><h4><%= restaurant.name %></h4></a>
+      <a class="data-title" href="/restaurants/<%= restaurant.id %>"><img class="restaurant-image" src="<%= restaurant.image %>" alt="<%= restaurant.name %>">
+      <h4><%= restaurant.name %></h4></a>
+
       <form method="POST" action="/wishlists/restaurants">
       <input type="hidden" value="<%= restaurant.id %>" name="id">
       <button class="add-wishlist-button">Add to Wishlist</button>

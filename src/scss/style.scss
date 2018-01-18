@@ -95,36 +95,49 @@ div {
 }
 
 // WISHLISTS INDEX
-div{
-  &.wishlist-container {
-    margin: 0 auto;
-    width: 80%;
-  }
-  div {
-    &.wishlists {
-      border: 2px solid #eec3c4;
-      border-radius: 100px;
-      // padding: 80px 20px;
-      margin: 20px;
-      text-align:center;
-    }
-    &.wishlists:hover {
-        background-color:#eec3c4;
-    }
-    a {
-      &.wishlist-links {
-        text-decoration: none;
-      }
-    }
-    h5 {
-      &.wishlist-choices {
-        font-size: 30px;
-        text-decoration: none;
-        color: black;
+div {
+  a {
+    img {
+      &.wishlist-images {
+        height: 300px;
+        width: 300px;
+        display: block;
+        margin: 0 auto;
+        padding: 20px 10px;
       }
     }
   }
 }
+// div{
+//   &.wishlist-container {
+//     margin: 0 auto;
+//     width: 80%;
+//   }
+//   div {
+//     &.wishlists {
+//       border: 2px solid #eec3c4;
+//       border-radius: 100px;
+//       // padding: 80px 20px;
+//       margin: 20px;
+//       text-align:center;
+//     }
+//     &.wishlists:hover {
+//         background-color:#eec3c4;
+//     }
+//     a {
+//       &.wishlist-links {
+//         text-decoration: none;
+//       }
+//     }
+//     h5 {
+//       &.wishlist-choices {
+//         font-size: 30px;
+//         text-decoration: none;
+//         color: black;
+//       }
+//     }
+//   }
+// }
 
 // SHOW PAGES - BOOK/TV/FILM
 div {
@@ -162,6 +175,7 @@ div {
         &.edit-wishlist-button {
           margin: 20px 10px;
           display: block;
+          text-align: center;
         }
       }
     }
@@ -195,6 +209,20 @@ div {
   }
 }
 
+// SHOW RESTAURANT
+div {
+  section {
+    img {
+      &.show-restaurant-image {
+        width: 500px;
+        height: 350px;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
 // RETURN BUTTON FOR WISHLIST PAGES
 a {
   &.return-button {
@@ -216,7 +244,7 @@ nav, div {
       margin-bottom:10px;
     }
     h1 {
-      font-size: 30px;
+      font-size: 20px;
       text-align: center;
       padding: 10px 5px;
     }
@@ -307,10 +335,10 @@ div {
 div {
   img {
     &.restaurant-image {
-      width: 300px;
-      height: 200px;
+      width: 370px;
+      height: 290px;
       padding: 20px 10px;
-      border-radius: 25%;
+      border-radius: 10%;
     }
   }
 }
