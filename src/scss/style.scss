@@ -56,34 +56,49 @@ main{
   }
 }
 
-//titles of pages
-.resource-title {
-  font-size: 80px;
-  text-align: center;
+// PAGE TITLES
+h1 {
+  &.resource-title {
+    font-size: 80px;
+    text-align: center;
+  }
 }
+
 
 // search forms
-.search-form {
-  margin: 0 auto;
-  width:80%
+div {
+  &.search-form {
+    margin: 0 auto;
+    width:80%
+  }
+  form {
+    input {
+      &.search-input-field {
+        width: 80%;
+        border: 2px solid #eec3c4;
+        border-radius: 10px;
+        padding: 10px;
+        outline: none;
+      }
+    }
+    input {
+      &.search-button {
+        background-color: #eec3c4;
+        border:2px solid #eec3c4;
+        border-radius: 15px;
+        padding: 10px 20px;
+        outline: none;
+        margin: 0 20px;
+      }
+    }
+  }
 }
 
-.search-input-field {
-  width: 80%;
-  border: 2px solid #eec3c4;
-  border-radius: 10px;
-  padding: 10px;
-  outline: none;
-}
 
-.search-button {
-  background-color: #eec3c4;
-  border:2px solid #eec3c4;
-  border-radius: 15px;
-  padding: 10px 20px;
-  outline: none;
-  margin: 0 20px;
-}
+
+
+
+
 
 // WISHLISTS INDEX
 div{
