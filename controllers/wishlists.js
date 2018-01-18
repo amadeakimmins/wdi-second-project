@@ -36,6 +36,8 @@ function wishlistsCreate(req, res, next) {
 
       if (user[req.params.category].indexOf(req.body.id) === -1) {
         user[req.params.category].push(req.body.id);
+      } else {
+        req.flash('secondary', 'Already in your wishlists!');
       }
       return user.save();
     })

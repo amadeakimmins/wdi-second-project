@@ -2,18 +2,21 @@
 <a class="return-button" href="/restaurants">Search All Restaurants</a>
 <h1 class="resource-title">Restaurants</h1>
 
+
 <div class="container">
   <div class="row">
     <% user.restaurants.forEach((restaurant) => { %>
       <div class="col-lg-4 col-md-6 col-sm-12 data-layout">
-      <img class="restaurant-image" src="<%= restaurant.image %>" alt="<%= restaurant.name %>">
-      <a class="data-title" href="/restaurants/<%= restaurant.id %>"><h4><%= restaurant.name %></h4></a>
-
-      <form method="POST" action="/wishlists/restaurants/<%= restaurant.id %>">
-        <input type="hidden" name="_method" value="DELETE">
-        <button class="add-wishlist-button">Remove</button>
-      </form>
-      </div>
+        <div class="hovereffect">
+          <a class="data-title" href="/restaurants/<%= restaurant.id %>"><img class="restaurant-image" src="<%= restaurant.image %>" alt="<%= restaurant.name %>">
+            <div class="overlay">
+              <h4 class="hover-color"><%= restaurant.name %></h4></a>
+              <form method="POST" action="/wishlists/restaurants/<%= restaurant.id %>">
+                <input type="hidden" name="_method" value="DELETE">
+                <button class="add-wishlist-button">Remove</button>
+              </form>
+            </div>
+          </div>
+        </div>
     <% }) %>
   </div>
-</div>

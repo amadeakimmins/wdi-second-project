@@ -3,17 +3,21 @@
 
 <h1 class="resource-title">Films</h1>
 
+
 <div class="container">
   <div class="row">
-    <% user.films.forEach((film) => { %>
-      <div class="col-lg-3 col-md-4 col-sm-6 col-12 data-layout">
-        <img class="data-image" src="<%= film.image %>" alt="<%= film.title %>">
-
-        <form method="POST" action="/wishlists/films/<%= film.id %>">
-          <input type="hidden" name="_method" value="DELETE">
-          <button class="add-wishlist-button">Remove</button>
-        </form>
-      </div>
+      <% user.films.forEach((film) => { %>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-12 data-layout">
+          <div class="hovereffect">
+          <a href="/films/<%= film.id %>"><img class="data-image" src="<%= film.imageSRC %>" alt="<%= film.title %>">
+            <div class="overlay">
+              <h4 class="hover-color"><%= film.title %></h4></a>
+              <form method="POST" action="/wishlists/films/<%= film.id %>">
+                <input type="hidden" name="_method" value="DELETE">
+                <button class="add-wishlist-button">Remove</button>
+              </form>
+              </div>
+          </div>
+        </div>
       <% }) %>
   </div>
-</div>

@@ -6,15 +6,18 @@
 
 <div class="container">
   <div class="row">
-    <% user.tvSeriess.forEach((tvSeries) => { %>
-      <div class="col-md-3 data-layout">
-        <img class="data-image" src="<%= tvSeries.imageSRC %>" alt="<%= tvSeries.name %>">
-
-        <form method="POST" action="/wishlists/tvSeriess/<%= tvSeries.id %>">
-          <input type="hidden" name="_method" value="DELETE">
-          <button class="add-wishlist-button">Remove</button>
-        </form>
-      </div>
-    <% }) %>
+      <% user.tvSeriess.forEach((tvSeries) => { %>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-12 data-layout">
+          <div class="hovereffect">
+          <a href="/tvSeriess/<%= tvSeries.id %>"><img class="data-image" src="<%= tvSeries.imageSRC %>" alt="<%= tvSeries.name %>">
+            <div class="overlay">
+              <h4 class="hover-color"><%= tvSeries.name %></h4></a>
+              <form method="POST" action="/wishlists/tvSeriess/<%= tvSeries.id %>">
+                <input type="hidden" name="_method" value="DELETE">
+                <button class="add-wishlist-button">Remove</button>
+              </form>
+              </div>
+          </div>
+        </div>
+      <% }) %>
   </div>
-</div>
