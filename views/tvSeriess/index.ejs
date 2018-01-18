@@ -24,6 +24,7 @@
     <% tvSeriess.forEach((tvSeries) => { %>
       <div class="col-md-3 data-layout">
         <img class="data-image" src="<%= tvSeries.imageSRC %>" alt="<%= tvSeries.name %>">
+        <a class="data-title" href="/tvSeriess/<%= tvSeries.id %>"><h4><%= tvSeries.name %></h4></a>
 
         <form method="POST" action="/wishlists/tvSeriess">
           <input type="hidden" value="<%= tvSeries.id %>" name="id">

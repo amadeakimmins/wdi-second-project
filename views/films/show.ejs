@@ -1,16 +1,27 @@
-<h1><%= film.title %></h1>
-<img src="<%= film.image %>" alt="film.title">
-<h4>Year: <%= film.year %></h4>
-<h4>Average Rating: <%= film.averageRating %></h4>
-<h4>director: <%= film.director %></h4>
-<h4>Synopsis: <%= film.synopsis %></h4>
-<h4>Trailer: <%= film.trailer %></h4>
 
-<% if (locals.isLoggedIn) { %>
-  <a href="/films/<%= film.id %>/edit" class="btn edit-btn" style="background-color: #eec3c4">Edit</a>
+<div class="container">
+  <div class="row">
+    <section class= "col-md-6 col-12" >
+      <img class="show-image" src="<%= film.image %>" alt="film.title">
+    </section>
+    <aside class="col-md-6 col-12">
+      <h1 class="show-title"><%= film.title %></h1>
+      <h4 class="show-info"><strong>Year</strong>: <%= film.year %></h4>
+      <h4 class="show-info"><strong>Average Rating</strong>: <%= film.averageRating %></h4>
+      <h4 class="show-info"><strong>Director</strong>: <%= film.director %></h4>
+      <h4 class="show-info"><strong>Synopsis</strong>: <%= film.synopsis %></h4>
+      <h4 class="show-info"><strong>Trailer</strong>: <%= film.trailer %></h4>
 
-  <form method="POST" action="/films/<%= film.id %>" class="delete-btn">
-    <input type="hidden" name="_method" value="DELETE">
-    <button class="btn" style="background-color: #eec3c4">Delete</button>
-  </form>
-<% } %>
+      <% if (locals.isLoggedIn) { %>
+        <a href="/films/<%= film.id %>/edit" class="btn edit-wishlist-button edit-btn">Edit</a>
+
+        <form method="POST" action="/films/<%= film.id %>" class="delete-btn">
+          <input type="hidden" name="_method" value="DELETE">
+          <a class="btn edit-wishlist-button" >Delete</a>
+        </form>
+
+        <a class="back-button" href="/films">Back</a>
+      <% } %>
+    </aside>
+  </div>
+</div>

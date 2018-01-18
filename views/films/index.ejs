@@ -26,6 +26,7 @@
     <% films.forEach((film) => { %>
       <div class="col-lg-3 col-md-4 col-sm-6 col-12 data-layout">
         <img class="data-image" src="<%= film.image %>" alt="<%= film.title %>">
+        <a class="data-title" href="/films/<%= film.id %>"><h4><%= film.title %></h4></a>
 
         <form method="POST" action="/wishlists/films">
         <input type="hidden" value="<%= film.id %>" name="id">
