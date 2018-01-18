@@ -1,14 +1,24 @@
-<h1><%= podcast.title %></h1>
-<img src="<%= podcast.image %>" alt="podcast.title">
-<h4>Creator: <%= podcast.creator %></h4>
-<h4>Synopsis: <%= podcast.synopsis %></h4>
-<h4>Link: <%= podcast.link %></h4>
+<div class="container">
+  <div class="row">
+    <section class= "col-md-6 col-12" >
+      <img class="show-podcast-image" src="<%= podcast.image %>" alt="podcast.title">
+    </section>
+    <aside class="col-md-6 col-12">
+      <h1 class="show-title"><%= podcast.title %></h1>
+      <h4 class="show-info"><strong>Creator</strong>: <%= podcast.creator %></h4>
+      <h4 class="show-info"><strong>Synopsis</strong>: <%= podcast.synopsis %></h4>
+      <h4 class="show-info"><strong>Link</strong>: <%= podcast.link %></h4>
 
-<% if (locals.isLoggedIn) { %>
-  <a href="/podcasts/<%= podcast.id %>/edit" class="btn edit-btn" style="background-color: #eec3c4">Edit</a>
+      <% if (locals.isLoggedIn) { %>
+        <a href="/podcasts/<%= podcast.id %>/edit" class="btn edit-wishlist-button edit-btn">Edit</a>
 
-  <form method="POST" action="/podcasts/<%= podcast.id %>" class="delete-btn">
-    <input type="hidden" name="_method" value="DELETE">
-    <button class="btn" style="background-color: #eec3c4">Delete</button>
-  </form>
-<% } %>
+        <form method="POST" action="/podcasts/<%= podcast.id %>" class="delete-btn">
+          <input type="hidden" name="_method" value="DELETE">
+          <a class="btn edit-wishlist-button" >Delete</a>
+        </form>
+
+        <a class="back-button" href="/podcasts">Back</a>
+      <% } %>
+    </aside>
+  </div>
+</div>

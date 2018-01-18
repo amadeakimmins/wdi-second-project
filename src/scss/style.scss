@@ -181,6 +181,20 @@ div {
   }
 }
 
+// SHOW PODCAST
+div {
+  section {
+    img {
+      &.show-podcast-image {
+        width: 400px;
+        height: 400px;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
 // RETURN BUTTON FOR WISHLIST PAGES
 a {
   &.return-button {
