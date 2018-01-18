@@ -1,0 +1,21 @@
+
+header, nav {
+  &.navbar {
+    font-size: 20px;
+    margin-bottom: 40px;
+  }
+  img {
+    &.corner-logo {
+      width: 60px;
+      height: 60px;
+    }
+  }
+  div {
+    span {
+      &.left-side-nav {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+}

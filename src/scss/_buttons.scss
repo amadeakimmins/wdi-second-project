@@ -1,0 +1,44 @@
+// STYLING THE  ADD TO + REMOVE WISHLIST BUTTON
+form {
+  button {
+    &.add-wishlist-button {
+      color: $primary-color;
+      text-decoration: none;
+      background-color: $secondary-color;
+      opacity: 0.6;
+      border-radius: 15px;
+      padding: 10px 20px;
+      outline: none;
+    }
+    &.add-wishlist-button:hover {
+      opacity: 1;
+    }
+  }
+}
+
+// STYLING EDIT BUTTON
+aside {
+  a {
+    &.edit-wishlist-button{
+      color: $primary-color;
+      text-decoration: none;
+      background-color: $secondary-color;
+      opacity: 0.6;
+      border-radius: 15px;
+      padding: 10px 20px;
+      outline: none;
+    }
+    &.edit-wishlist-button:hover{
+      opacity: 1;
+    }
+  }
+}
+
+// MOVING BUTTON TO BOTTOM OF IMAGES
+.overlay {
+  position: relative;
+  form {
+    position: absolute;
+    bottom: 30px;
+  }
+}

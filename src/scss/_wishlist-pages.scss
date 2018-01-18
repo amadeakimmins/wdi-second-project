@@ -1,0 +1,30 @@
+// WISHLIST INDEX
+div {
+  a {
+    img {
+      &.wishlist-images {
+        height: 300px;
+        width: 300px;
+        display: block;
+        margin: 0 auto;
+        padding: 20px 10px;
+      }
+    }
+  }
+}
+
+// RETURN BUTTON FOR WISHLIST PAGES
+a {
+  &.return-button {
+    color: $primary-color;
+    text-decoration: none;
+    background-color: $secondary-color;
+    opacity: 0.6;
+    border-radius: 15px;
+    padding: 10px 20px;
+    outline: none;
+  }
+  &.return-button:hover {
+    opacity: 1;
+  }
+}

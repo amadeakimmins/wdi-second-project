@@ -1,0 +1,51 @@
+
+html, body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+}
+
+// PAGE TITLES
+h1 {
+  &.resource-title {
+    font-size: 60px;
+    text-align: center;
+  }
+}
+
+main{
+  section {
+    div {
+      &.carousel {
+        margin-top: 15px;
+      }
+    }
+    div {
+      &.text-about-website {
+        padding: 10px;
+      }
+    }
+    h1 {
+      &.website-name {
+        text-align: center;
+        font-size: 30px;
+      }
+      img {
+        &.logo {
+          width: 60px;
+          height: 60px;
+        }
+      }
+    }
+  }
+  aside {
+    &.register-homepage-form {
+      padding-left: 60px;
+      margin-top: 150px;
+    }
+    form, div {
+      &.register-input-box {
+        margin-bottom: 3px;
+      }
+    }
+  }
+}

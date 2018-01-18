@@ -1,0 +1,88 @@
+// SHOW PAGES - BOOK/TV/FILM
+div {
+  section{
+    img {
+      &.show-image {
+        width: 350px;
+        height: 500px;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+  aside {
+    h1 {
+      &.show-title {
+        font-size: 60px;
+        margin: 20px 0;
+      }
+    }
+    h4 {
+      &.show-info {
+        font-size: 20px;
+        text-align: center;
+      }
+    }
+    a {
+      &.edit-btn {
+        margin: 20px 10px;
+        display: block;
+      }
+    }
+    form {
+      a {
+        &.edit-wishlist-button {
+          margin: 20px 10px;
+          display: block;
+          text-align: center;
+          color: $primary-color;
+        }
+      }
+    }
+    a {
+      &.back-button {
+        color: $primary-color;
+        text-decoration: none;
+        text-align: center;
+        background-color: $secondary-color;
+        opacity: 0.6;
+        border-radius: 15px;
+        padding: 10px 20px;
+        outline: none;
+        margin: 0 10px;
+        display: block;
+      }
+      &.back-button:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+// SHOW PODCAST
+div {
+  section {
+    img {
+      &.show-podcast-image {
+        width: 400px;
+        height: 400px;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+// SHOW RESTAURANT
+div {
+  section {
+    img {
+      &.show-restaurant-image {
+        width: 500px;
+        height: 350px;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+}

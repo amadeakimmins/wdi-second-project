@@ -1,0 +1,14 @@
+// FILM AND TV INDEX PAGE
+nav, div {
+  &.jumbotron {
+      padding: 5px 40px;
+      background-color: #fff;
+      border-radius: 15px;
+      margin-bottom:10px;
+    }
+    h1 {
+      font-size: 20px;
+      text-align: center;
+      padding: 10px 5px;
+    }
+}
