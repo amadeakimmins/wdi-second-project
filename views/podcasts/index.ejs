@@ -6,13 +6,15 @@
     <div class="row">
         <% podcasts.forEach((podcast) => { %>
           <div class="col-lg-3 col-md-4 col-sm-6 col-12 data-layout">
-            <a href="/podcasts/<%= podcast.id %>"><img class="podcast-image" src="<%= podcast.image %>" alt="<%= podcast.title %>"></a>
-
-            <form method="POST" action="/wishlists/podcasts">
-              <input type="hidden" value="<%= podcast.id %>" name="id">
-              <button class="add-wishlist-button">Add to Wishlist</button>
-            </form>
+            <div class="hovereffect">
+              <a href="/podcasts/<%= podcast.id %>"><img class="podcast-image" src="<%= podcast.image %>" alt="<%= podcast.title %>"></a>
+                <div class="overlay">
+                  <form method="POST" action="/wishlists/podcasts">
+                    <input type="hidden" value="<%= podcast.id %>" name="id">
+                    <button class="add-wishlist-button">Add to Wishlist</button>
+                  </form>
+                  </div>
+              </div>
+            </div>
+          <% }) %>
         </div>
-      <% }) %>
-  </div>
-</div>

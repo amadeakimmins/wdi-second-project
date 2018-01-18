@@ -20,14 +20,16 @@
 <div class="container">
   <div class="row">
     <% tvSeriess.forEach((tvSeries) => { %>
-      <div class="col-md-3 data-layout">
-        <a href="/tvSeriess/<%= tvSeries.id %>"><img class="data-image" src="<%= tvSeries.imageSRC %>" alt="<%= tvSeries.name %>"></a>
-
-        <form method="POST" action="/wishlists/tvSeriess">
-          <input type="hidden" value="<%= tvSeries.id %>" name="id">
-          <button class="add-wishlist-button">Add to Wishlist</button>
-        </form>
+      <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 data-layout">
+        <div class="hovereffect">
+          <a href="/tvSeriess/<%= tvSeries.id %>"><img class="data-image" src="<%= tvSeries.imageSRC %>" alt="<%= tvSeries.name %>"></a>
+            <div class="overlay">
+              <form method="POST" action="/wishlists/tvSeriess">
+                <input type="hidden" value="<%= tvSeries.id %>" name="id">
+                <button class="add-wishlist-button">Add to Wishlist</button>
+              </form>
+              </div>
+          </div>
       </div>
     <% }) %>
   </div>
-</div>

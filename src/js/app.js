@@ -11,7 +11,7 @@ $(() => {
 // --- FILM API SEARCH --- //
 function addFilm(film) {
   $('.api-container').append(`
-                                <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-12 data-layout">
                                   <img class="api-image" src="https://image.tmdb.org/t/p/w500${film.poster_path}">
                                   <form method="POST" action="/films">
                                     <input type="hidden" name="title" value="${film.title}">
