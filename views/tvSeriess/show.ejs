@@ -1,16 +1,24 @@
-<a class="return-button" href="/wishlists/tvSeriess">Return</a>
+<div class="container">
+  <div class="row">
+    <section class= "col-md-6 col-12" >
+      <img class="show-image" src="<%= tvSeries.image %>" alt="tvSeries.name">
+    </section>
+    <aside class="col-md-6 col-12">
+      <h1 class="show-title"><%= tvSeries.name %></h1>
+      <h4 class="show-info"><strong>Year</strong>: <%= tvSeries.year %></h4>
+      <h4 class="show-info"><strong>Average Rating</strong>: <%= tvSeries.averageRating %></h4>
+      <h4 class="show-info"><strong>Synopsis</strong>: <%= tvSeries.synopsis %></h4>
 
-<h1><%= tvSeries.name %></h1>
-<img src="<%= tvSeries.image %>" alt="tvSeries.title">
-<h4>Year: <%= tvSeries.year %></h4>
-<h4>Average Rating: <%= tvSeries.averageRating %></h4>
-<h4>Synopsis: <%= tvSeries.synopsis %></h4>
+      <% if (locals.isLoggedIn) { %>
+        <a href="/tvSeriess/<%= tvSeries.id %>/edit" class="btn edit-wishlist-button edit-btn">Edit</a>
 
-<% if (locals.isLoggedIn) { %>
-  <a href="/tvSeriess/<%= tvSeries.id %>/edit" class="btn edit-btn" style="background-color: #eec3c4">Edit</a>
+        <form method="POST" action="/tvSeriess/<%= tvSeries.id %>" class="delete-btn">
+          <input type="hidden" name="_method" value="DELETE">
+          <a class="btn edit-wishlist-button" >Delete</a>
+        </form>
 
-  <form method="POST" action="/tvSeriess/<%= tvSeries.id %>" class="delete-btn">
-    <input type="hidden" name="_method" value="DELETE">
-    <button class="btn" style="background-color: #eec3c4">Delete</button>
-  </form>
-<% } %>
+        <a class="back-button" href="/tvSeriess">Back</a>
+      <% } %>
+    </aside>
+  </div>
+</div>
