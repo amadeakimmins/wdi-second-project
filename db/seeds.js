@@ -18,20 +18,9 @@ Podcast.collection.drop();
 Restaurant.collection.drop();
 TvSeries.collection.drop();
 
-User
-  .create([{
-    firstName: 'Amadea',
-    lastName: 'Kimmins',
-    username: 'amadeakimmins',
-    email: 'amadea@ga.com',
-    password: 'password',
-    passwordConfirmation: 'password'
-  }])
-  .then((users) => {
-return Book
+Book
   .create([{
     title: 'A Little Life',
-    createdBy: users[0],
     image: 'https://images.gr-assets.com/books/1446469353l/22822858.jpg',
     author: 'Hanya Yanagihara',
     synopsis: 'When four classmates from a small Massachusetts college move to New York to make their way, they\'re broke, adrift, and buoyed only by their friendship and ambition. '
