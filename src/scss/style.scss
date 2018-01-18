@@ -8,7 +8,7 @@ html, body {
 header, nav {
   &.navbar {
     font-size: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
   }
   img {
     &.corner-logo {
@@ -126,6 +126,64 @@ div{
   }
 }
 
+// SHOW PAGES - BOOK/TV/FILM
+div {
+  section{
+    img {
+      &.show-image {
+        width: 350px;
+        height: 500px;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+  aside {
+    h1 {
+      &.show-title {
+        font-size: 60px;
+        margin: 20px 0;
+      }
+    }
+    h4 {
+      &.show-info {
+        font-size: 20px;
+        text-align: center;
+      }
+    }
+    a {
+      &.edit-btn {
+        margin: 20px 10px;
+        display: block;
+      }
+    }
+    form {
+      a {
+        &.edit-wishlist-button {
+          margin: 20px 10px;
+          display: block;
+        }
+      }
+    }
+    a {
+      &.back-button {
+        color: black;
+        text-align: center;
+        text-decoration: none;
+        background-color: #eec3c4;
+        border:2px solid #eec3c4;
+        border-radius: 15px;
+        padding: 10px 20px;
+        margin: 0 10px;
+        display: block;
+      }
+    }
+  }
+}
+
+
+
+
 // RETURN BUTTON FOR WISHLIST PAGES
 a {
   &.return-button {
@@ -165,10 +223,25 @@ div {
   }
 }
 
-// STYLING THE  ADD TO + REMOVE WISHLIST BUTTON 
+// STYLING THE  ADD TO + REMOVE WISHLIST BUTTON
 form {
   button {
     &.add-wishlist-button {
+      color: black;
+      text-decoration: none;
+      background-color: #eec3c4;
+      border:2px solid #eec3c4;
+      border-radius: 15px;
+      padding: 10px 20px;
+      outline: none;
+    }
+  }
+}
+
+// STYLING EDIT BUTTON
+aside {
+  a {
+    &.edit-wishlist-button{
       color: black;
       text-decoration: none;
       background-color: #eec3c4;
@@ -187,6 +260,7 @@ div {
   }
   img {
     &.data-image {
+      border-radius: 10%;
       width: 200px;
       height: 300px;
       padding: 20px 10px;
@@ -211,7 +285,8 @@ div {
     &.podcast-image {
       width: 250px;
       height: 250px;
-      padding: 20px 10px;;
+      padding: 20px 10px;
+      border-radius: 20%;
     }
   }
 }
@@ -224,6 +299,7 @@ div {
       width: 300px;
       height: 200px;
       padding: 20px 10px;
+      border-radius: 25%;
     }
   }
 }
