@@ -2,23 +2,18 @@
 <a class="return-button" href="/restaurants">Search All Restaurants</a>
 <h1 class="resource-title">Restaurants</h1>
 
-<ul>
-  <% user.restaurants.forEach((restaurant) => { %>
-    <li>
-    <img src="<%= restaurant.image %>" alt="<%= restaurant.name %>">
-    <a href="/restaurants/<%= restaurant.id %>"><h4><%= restaurant.name %></h4></a>
-    <p>
-      <%= restaurant.address.line1 %><br>
-      <% if(restaurant.address.line2) { %><%= restaurant.address.line2 %><br><% } %>
-      <%= restaurant.address.city %><br>
-      <%= restaurant.address.postcode %><br>
-      <%= restaurant.address.country %>
-    </p>
-    <h4>Cuisine: <%= restaurant.cuisine %></h4>
-    </li>
-    <form method="POST" action="/wishlists/restaurants/<%= restaurant.id %>">
-      <input type="hidden" name="_method" value="DELETE">
-      <button>Remove</button>
-    </form>
+<div class="container">
+  <div class="row">
+    <% user.restaurants.forEach((restaurant) => { %>
+      <div class="col-lg-4 col-md-6 col-sm-12 data-layout">
+      <img class="restaurant-image" src="<%= restaurant.image %>" alt="<%= restaurant.name %>">
+      <a class="data-title" href="/restaurants/<%= restaurant.id %>"><h4><%= restaurant.name %></h4></a>
+
+      <form method="POST" action="/wishlists/restaurants/<%= restaurant.id %>">
+        <input type="hidden" name="_method" value="DELETE">
+        <button class="add-wishlist-button">Remove</button>
+      </form>
+      </div>
     <% }) %>
-  </ul>
+  </div>
+</div>

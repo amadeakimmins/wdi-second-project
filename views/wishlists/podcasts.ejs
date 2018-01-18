@@ -2,18 +2,18 @@
 
 <h1 class="resource-title">Pocasts</h1>
 
+<div class="container">
+  <div class="row">
+    <% user.podcasts.forEach((podcast) => { %>
+      <div class="col-lg-3 col-md-4 col-sm-6 col-12 data-layout">
+      <img class="podcast-image" src="<%= podcast.image %>" alt="<%= podcast.title %>">
+      <a class="data-title" href="/podcasts/<%= podcast.id %>"><h4><%= podcast.title %></h4></a>
 
-<ul>
-  <% user.podcasts.forEach((podcast) => { %>
-    <li>
-    <img src="<%= podcast.image %>" alt="<%= podcast.title %>">
-    <a href="/podcasts/<%= podcast.id %>"><h4><%= podcast.title %></h4></a>
-    <h4>creator: <%= podcast.creator %></h4>
-    <h4>Link: <%= podcast.link %></h4>
-    </li>
-    <form method="POST" action="/wishlists/podcasts/<%= podcast.id %>">
+      <form method="POST" action="/wishlists/podcasts/<%= podcast.id %>">
       <input type="hidden" name="_method" value="DELETE">
-      <button>Remove</button>
-    </form>
+      <button class="add-wishlist-button">Remove</button>
+      </form>
+      </div>
     <% }) %>
-  </ul>
+  </div>
+</div>

@@ -4,17 +4,17 @@
 <h1 class="resource-title">Tv Series</h1>
 
 
-<ul>
-  <% user.tvSeriess.forEach((tvSeries) => { %>
-    <li>
-    <img src="<%= tvSeries.imageSRC %>" alt="<%= tvSeries.name %>">
-    <a href="/tvSeriess/<%= tvSeries.id %>"><h4><%= tvSeries.name %></h4></a>
-    <h4>Year: <%= tvSeries.year %></h4>
-    <h4>Average Rating: <%= tvSeries.averageRating %></h4>
-    </li>
-    <form method="POST" action="/wishlists/tvSeriess/<%= tvSeries.id %>">
-      <input type="hidden" name="_method" value="DELETE">
-      <button class="btn" style="background-color: #eec3c4">Delete</button>
-    </form>
-  <% }) %>
-</ul>
+<div class="container">
+  <div class="row">
+    <% user.tvSeriess.forEach((tvSeries) => { %>
+      <div class="col-md-3 data-layout">
+        <img class="data-image" src="<%= tvSeries.imageSRC %>" alt="<%= tvSeries.name %>">
+
+        <form method="POST" action="/wishlists/tvSeriess/<%= tvSeries.id %>">
+          <input type="hidden" name="_method" value="DELETE">
+          <button class="add-wishlist-button">Remove</button>
+        </form>
+      </div>
+    <% }) %>
+  </div>
+</div>

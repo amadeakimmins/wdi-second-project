@@ -3,16 +3,19 @@
 <h1 class="resource-title">Books</h1>
 
 
-  <ul>
-    <% user.books.forEach((book) => { %>
-      <li>
-      <img src="<%= book.image %>" alt="<%= book.title %>">
-      <a href="/books/<%= book.id %>"><h4><%= book.title %></h4></a>
-      <h4>Author: <%= book.author %></h4>
-      </li>
-      <form method="POST" action="/wishlists/books/<%= book.id %>">
-        <input type="hidden" name="_method" value="DELETE">
-        <button>Remove</button>
-      </form>
+<div class="container">
+  <div class="row">
+      <% user.books.forEach((book) => { %>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-12 data-layout">
+
+          <img class="data-image" src="<%= book.image %>" alt="<%= book.title %>">
+          <a class="data-title" href="/books/<%= book.id %>"><h4><%= book.title %></h4></a>
+
+          <form method="POST" action="/wishlists/books/<%= book.id %>">
+            <input type="hidden" name="_method" value="DELETE">
+            <button class="add-wishlist-button">Remove</button>
+          </form>
+        </div>
       <% }) %>
-    </ul>
+  </div>
+</div>
