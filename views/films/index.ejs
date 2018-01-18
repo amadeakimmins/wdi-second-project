@@ -19,21 +19,17 @@
   </div>
 </div>
 
-<div class="container row">
-  <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-    <ul>
-      <% films.forEach((film) => { %>
+<div class="container">
+  <div class="row">
+    <% films.forEach((film) => { %>
+      <div class="col-md-3 films">
+      <img class="film-image" src="<%= film.image %>" alt="<%= film.title %>">
 
-        <li>
-        <img src="<%= film.image %>" alt="<%= film.title %>">
-        </li>
-        <form method="POST" action="/wishlists/films">
-        <input type="hidden" value="<%= film.id %>" name="id">
-        <button>Add to Wishlist</button>
-        </form>
-
-        <% }) %>
-      </ul>
-    </div>
-
+      <form method="POST" action="/wishlists/films">
+      <input type="hidden" value="<%= film.id %>" name="id">
+      <button>Add to Wishlist</button>
+      </form>
+      </div>
+      <% }) %>
   </div>
+</div>
