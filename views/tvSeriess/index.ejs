@@ -15,7 +15,7 @@
     <input class="search-input-field" type="text" name="q" placeholder="Search TV Series" autocomplete="off">
     <input class="search-button" type="submit" value="Go!">
   </form>
-  <div class="series-container">
+  <div class="api-container row">
   </div>
 </div>
 
@@ -27,9 +27,9 @@
     <h4>Year: <%= tvSeries.year %></h4>
     <h4>Average Rating: <%= tvSeries.averageRating %></h4>
     </li>
-    <form method="POST" action="/wishlists/tvSeriess/<%= tvSeries.id %>">
-      <input type="hidden" name="_method" value="DELETE">
-      <button>Remove</button>
+    <form method="POST" action="/wishlists/tvSeriess">
+      <input type="hidden" value="<%= tvSeries.id %>" name="id">
+      <button class="add-wishlist-button">Add to Wishlist</button>
     </form>
   <% }) %>
 </ul>

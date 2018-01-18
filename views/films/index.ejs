@@ -15,24 +15,25 @@
     <input class="search-input-field" type="text" name="q" placeholder="Search Films" autocomplete="off">
     <input class="search-button" type="submit" value="Go!">
   </form>
-  <div class="film-container row">
+  <div class="api-container row">
   </div>
 </div>
 
+<div class="container row">
+  <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+    <ul>
+      <% films.forEach((film) => { %>
 
-<ul>
-  <% films.forEach((film) => { %>
-    <li>
-    <img src="<%= film.image %>" alt="<%= film.title %>">
-    <a href="/films/<%= film.id %>"><h4><%= film.title %></h4></a>
-    <h4>Year: <%= film.year %></h4>
-    <h4>Average Rating: <%= film.averageRating %></h4>
-    <h4>director: <%= film.director %></h4>
-    <h4>Trailer: <%= film.trailer %></h4>
-    </li>
-    <form method="POST" action="/wishlists/films">
-      <input type="hidden" value="<%= film.id %>" name="id">
-      <button>Add to Wishlist</button>
-    </form>
-    <% }) %>
-  </ul>
+        <li>
+        <img src="<%= film.image %>" alt="<%= film.title %>">
+        </li>
+        <form method="POST" action="/wishlists/films">
+        <input type="hidden" value="<%= film.id %>" name="id">
+        <button>Add to Wishlist</button>
+        </form>
+
+        <% }) %>
+      </ul>
+    </div>
+
+  </div>

@@ -1,20 +1,18 @@
 
 $(() => {
-  if ($('.film-container').length !== 0) {
+  if ($('.api-container').length !== 0) {
     $('.searchFilms').on('submit', getFilms);
   }
-  if($('.series-container').length !== 0) {
+  if($('.api-container').length !== 0) {
     $('.searchTvSeries').on('submit', getTvSeries);
   }
 });
 
 // --- FILM API SEARCH --- //
 function addFilm(film) {
-  $('.film-container').append(`
-                                <div class="col-3">
-                                  <h1>${film.title}</h1>
+  $('.api-container').append(`
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                                   <img class="api-image" src="https://image.tmdb.org/t/p/w500${film.poster_path}">
-                                  <h1>Rating: ${film.vote_average}</h1>
                                   <form method="POST" action="/films">
                                     <input type="hidden" name="title" value="${film.title}">
                                     <input type="hidden" name="image" value="${film.poster_path}">
@@ -46,28 +44,22 @@ function getFilms(e) {
 }
 
 function emptyFilms() {
-  $('.inputFilm, .film-container').empty();
+  $('.inputFilm, .api-container').empty();
 }
 
 
 // --- TV SERIES API SEARCH --- //
 function addTvSeries(tvSeries) {
-  $('.series-container').append(`
-                            <div class="container">
-                              <div class="row">
-                                <div class="col-4">
-                                  <h1>${tvSeries.name}</h1>
-                                  <img class="api-image" src="https://image.tmdb.org/t/p/w500${tvSeries.poster_path}">
-                                  <h1>Rating: ${tvSeries.vote_average}</h1>
-                                  <form method="POST" action="/tvSeriess">
-                                    <input type="hidden" name="name" value="${tvSeries.name}">
-                                    <input type="hidden" name="image" value="${tvSeries.poster_path}">
-                                    <input type="hidden" name="averageRating" value="${tvSeries.vote_average}">
-                                  <input class="search-button" type="submit" value="Add to watchlist">
-                                  </form>
-                                </div>
+  $('.api-container').append(`
+                              <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                                <img class="api-image" src="https://image.tmdb.org/t/p/w500${tvSeries.poster_path}">
+                                <form method="POST" action="/tvSeriess">
+                                  <input type="hidden" name="name" value="${tvSeries.name}">
+                                  <input type="hidden" name="image" value="${tvSeries.poster_path}">
+                                  <input type="hidden" name="averageRating" value="${tvSeries.vote_average}">
+                                <input class="search-button" type="submit" value="Add to watchlist">
+                                </form>
                               </div>
-                            </div>
                             `);
 
 }
@@ -90,5 +82,5 @@ function getTvSeries(e) {
 }
 
 function emptyTvSeries() {
-  $('.inputFilm, .series-container').empty();
+  $('.inputFilm, .api-container').empty();
 }
