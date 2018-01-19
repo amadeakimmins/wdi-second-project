@@ -18,6 +18,7 @@ Podcast.collection.drop();
 Restaurant.collection.drop();
 TvSeries.collection.drop();
 
+
 Book
   .create([{
     title: 'A Little Life',
@@ -348,6 +349,18 @@ Book
   })
   .then((restaurant) => {
     console.log(`${restaurant.length} restaurants created!`);
+
+    return User
+      .create([{
+        fullName: 'Amadea Kimmins',
+        username: 'amadeakimmins',
+        email: 'amadea.kimmins@hotmail.co.uk',
+        password: 'password',
+        passwordConfirmation: 'password'
+      }]);
+  })
+  .then(users => {
+    console.log(`${users.length} users created!`);
   })
   .catch((err) => {
     console.log(err);
