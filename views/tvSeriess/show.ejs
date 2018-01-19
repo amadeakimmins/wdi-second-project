@@ -17,6 +17,11 @@
           <button class="btn edit-wishlist-button edit-btn" >Delete</button>
         </form>
 
+        <form method="POST" action="/wishlists/tvSeriess">
+          <input type="hidden" value="<%= tvSeries.id %>" name="id">
+          <button class="edit-wishlist-button edit-btn">Add to Wishlist</button>
+        </form>
+
         <a class="back-button" href="/tvSeriess">Back</a>
       <% } %>
     </aside>
