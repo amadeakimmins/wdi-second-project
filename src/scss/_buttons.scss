@@ -32,6 +32,20 @@ aside {
       opacity: 1;
     }
   }
+  button {
+    &.edit-wishlist-button{
+      color: $primary-color;
+      text-decoration: none;
+      background-color: $secondary-color;
+      opacity: 0.6;
+      border-radius: 15px;
+      padding: 10px 20px;
+      outline: none;
+    }
+    &.edit-wishlist-button:hover{
+      opacity: 1;
+    }
+  }
 }
 
 // MOVING BUTTON TO BOTTOM OF IMAGES

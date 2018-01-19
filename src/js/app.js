@@ -63,14 +63,14 @@ function addTvSeries(tvSeries) {
   if(tvSeries.poster_path) {
     $('.api-container').append(`
                                 <div class="col-lg-3 col-md-4 col-sm-6 col-12 data-layout">
-                                  <div class="hover-effect">
-                                    <img class="api-image" src="https://image.tmdb.org/t/p/w500${tvSeries.poster_path}">
+                                  <div class="hovereffect">
+                                    <img class="data-image" src="https://image.tmdb.org/t/p/w500${tvSeries.poster_path}">
                                       <div class="overlay">
                                         <form method="POST" action="/tvSeriess">
                                           <input type="hidden" name="name" value="${tvSeries.name}">
                                           <input type="hidden" name="image" value="${tvSeries.poster_path}">
                                           <input type="hidden" name="averageRating" value="${tvSeries.vote_average}">
-                                        <button class="add-wishlist-button">Add to wishlist"</button>
+                                        <button class="add-wishlist-button">Add to wishlist</button>
                                         </form>
                                       </div>
                                     </div>

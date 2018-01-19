@@ -29,6 +29,13 @@ div {
         display: block;
       }
     }
+    button {
+      &.edit-btn {
+        margin: 20px 10px;
+        display: block;
+        width: 96.5%;
+      }
+    }
     form {
       a {
         &.edit-wishlist-button {
